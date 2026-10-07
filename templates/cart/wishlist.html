@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}My Saved Wishlist • PosterKart{% endblock %}
+
+{% block content %}
+<div class="bg-white border-bottom py-3 mb-4">
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb mb-0 small">
+                <li class="breadcrumb-item"><a href="{% url 'store:home' %}" class="text-muted">Home</a></li>
+                <li class="breadcrumb-item active text-dark fw-semibold" aria-current="page">My Wishlist</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+
+<div class="container pb-5">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <div>
+            <h1 class="h3 fw-bold mb-1">My Saved Wishlist</h1>
+            <p class="text-muted small mb-0">{{ wishlist_items.count }} posters saved for later inspiration</p>
+        </div>
+        <a href="{% url 'store:shop' %}" class="btn btn-pk-outline btn-sm">Explore More Posters</a>
+    </div>
+
+    {% if wishlist_items %}
+    <div class="row g-4">
+        {% for item in wishlist_items %}
+        <div class="col-6 col-md-4 col-lg-3">
+            <div class="product-card h-100 position-relative">
+                <div class="product-image-box">
+                    <a href="{{ item.poster.get_absolute_url }}">
+                        <img src="{{ item.poster.main_image.url }}" alt="{{ item.poster.title }}">
+                    </a>
+                    <!-- Wishlist Toggle -->
+                    <button type="button" class="btn-wishlist-card btn-wishlist-toggle active" data-poster-id="{{ item.poster.id }}" title="Remove from Wishlist">
+                        <i class="bi bi-heart-fill text-danger"></i>
+                    </button>
+                </div>
+                <div class="product-body">
+                    <div class="product-category">{{ item.poster.category.name }}</div>
+                    <a href="{{ item.poster.get_absolute_url }}" class="product-title">{{ item.poster.title }}</a>
+                    <div class="product-price-row mt-3">
+                        <div class="product-price">₹{{ item.poster.base_price|floatformat:0 }}</div>
+                        <form action="{% url 'cart:move_to_cart' poster_id=item.poster.id %}" method="POST">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-pk-dark btn-sm px-3" title="Move to Bag">
+                                <i class="bi bi-bag-plus me-1"></i> Move to Bag
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% else %}
+    <div class="text-center py-5 bg-white rounded-4 border my-4">
+        <div class="fs-1 text-danger mb-3"><i class="bi bi-heart"></i></div>
+        <h3 class="fw-bold mb-2">No saved posters yet.</h3>
+        <p class="text-muted small mb-4 max-w-400 mx-auto">Explore our collection and click the heart icon on any poster you love to save it to your wishlist.</p>
+        <a href="{% url 'store:shop' %}" class="btn btn-pk-primary px-4 py-2">Discover Posters →</a>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

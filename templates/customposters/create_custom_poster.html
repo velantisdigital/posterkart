@@ -1,0 +1,138 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Custom Poster Studio • Turn Your Photos Into Wall Art{% endblock %}
+
+{% block content %}
+<!-- Studio Banner -->
+<div class="bg-dark text-white py-5 mb-4">
+    <div class="container">
+        <span class="badge bg-danger mb-2 px-3 py-1 text-uppercase fw-bold">Personalized Studio</span>
+        <h1 class="display-6 fw-bold mb-2">Create Something Personal.</h1>
+        <p class="text-muted mb-0 max-w-600">Upload your own high-resolution image, select museum-grade framing and dimensions, and we'll print and dispatch it to your doorstep.</p>
+    </div>
+</div>
+
+<div class="container pb-5">
+    <div class="row g-5">
+        <!-- Left: Live Custom Poster Interactive Canvas Preview -->
+        <div class="col-lg-5">
+            <div class="sticky-top" style="top: 100px;">
+                <div class="text-center mb-3">
+                    <span class="small fw-bold text-muted text-uppercase">Live Framing Preview</span>
+                </div>
+
+                <!-- Preview Frame Box -->
+                <div id="customPreviewContainer" class="p-4 bg-light rounded-4 border text-center d-flex align-items-center justify-content-center" style="min-height: 480px;">
+                    <div id="customMockupFrame" class="mockup-poster-frame frame-black shadow-lg position-relative mx-auto">
+                        <img id="customPreviewImage" src="{% static 'images/placeholder-poster.svg' %}" alt="Custom Upload Preview" class="mockup-poster-img">
+                        <!-- Live Custom Text Overlay -->
+                        <div id="customPreviewTextOverlay" class="position-absolute bottom-0 start-0 end-0 p-3 text-white text-center fw-bold bg-dark bg-opacity-50" style="letter-spacing: 0.05em; font-size: 0.95rem;"></div>
+                    </div>
+                </div>
+
+                <div class="text-center mt-3 text-muted small">
+                    <i class="bi bi-info-circle me-1"></i> Final print uses genuine 12-color archival giclée inks for maximum sharpness.
+                </div>
+            </div>
+        </div>
+
+        <!-- Right: Upload Form & Customization Studio -->
+        <div class="col-lg-7">
+            <div class="p-4 p-md-5 bg-white rounded-4 border shadow-sm">
+                <form action="{% url 'customposters:create' %}" method="POST" enctype="multipart/form-data" id="customPosterStudioForm" data-base-price="{{ base_custom_price }}">
+                    {% csrf_token %}
+
+                    <!-- 1. Drag & Drop File Upload -->
+                    <div class="mb-4">
+                        <label class="form-label fw-bold small text-muted text-uppercase mb-2">1. Upload Image (JPG, PNG, WEBP)</label>
+                        {{ form.uploaded_image }}
+                        <div id="customPosterDropzone" class="upload-dropzone">
+                            <i class="bi bi-cloud-arrow-up-fill text-danger fs-1 mb-2"></i>
+                            <h5 class="fw-bold mb-1">Drag & drop your high-res image here</h5>
+                            <p class="text-muted small mb-2">or <span class="text-danger fw-bold">browse your computer</span></p>
+                            <span class="badge bg-light text-muted border">Max size: 10 MB • Recommended: 2000px+</span>
+                        </div>
+                        {% if form.uploaded_image.errors %}
+                            <div class="text-danger small mt-2">{{ form.uploaded_image.errors.0 }}</div>
+                        {% endif %}
+                    </div>
+
+                    <!-- 2. Select Dimensions -->
+                    <div class="mb-4">
+                        <label class="form-label fw-bold small text-muted text-uppercase mb-2">2. Choose Poster Size</label>
+                        <div class="option-selector-grid">
+                            {% for size in sizes %}
+                            <div>
+                                <input type="radio" name="size" value="{{ size.id }}" id="c_size_{{ size.id }}" class="option-card-radio" data-extra-price="{{ size.extra_price }}" {% if size.is_default or forloop.first %}checked{% endif %}>
+                                <label for="c_size_{{ size.id }}" class="option-card-label">
+                                    <div class="option-title">{{ size.code }}</div>
+                                    <div class="text-muted small" style="font-size: 0.72rem;">{{ size.dimensions }}</div>
+                                    <div class="option-price mt-1">{% if size.extra_price > 0 %}+₹{{ size.extra_price|floatformat:0 }}{% else %}Standard{% endif %}</div>
+                                </label>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+
+                    <!-- 3. Choose Framing -->
+                    <div class="mb-4">
+                        <label class="form-label fw-bold small text-muted text-uppercase mb-2">3. Framing & Presentation</label>
+                        <div class="option-selector-grid">
+                            {% for frame in frames %}
+                            <div>
+                                <input type="radio" name="frame" value="{{ frame.id }}" id="c_frame_{{ frame.id }}" class="option-card-radio" data-extra-price="{{ frame.extra_price }}" data-frame-type="{{ frame.frame_type }}" {% if frame.is_default or forloop.first %}checked{% endif %}>
+                                <label for="c_frame_{{ frame.id }}" class="option-card-label">
+                                    <div class="option-title small text-truncate">{{ frame.name.split.0 }}</div>
+                                    <div class="d-flex justify-content-center my-1">
+                                        <span class="d-inline-block rounded-circle border" style="width: 14px; height: 14px; background-color: {{ frame.color_code }};"></span>
+                                    </div>
+                                    <div class="option-price">{% if frame.extra_price > 0 %}+₹{{ frame.extra_price|floatformat:0 }}{% else %}Free (Rolled){% endif %}</div>
+                                </label>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+
+                    <!-- 4. Optional Custom Text on Poster -->
+                    <div class="mb-4">
+                        <label class="form-label fw-bold small text-muted text-uppercase mb-2">4. Add Custom Text / Caption (Optional)</label>
+                        {{ form.custom_text }}
+                        <div class="form-text small">Text will appear nicely positioned at the bottom of the poster.</div>
+                    </div>
+
+                    <!-- 5. Special Printing Instructions -->
+                    <div class="mb-4">
+                        <label class="form-label fw-bold small text-muted text-uppercase mb-2">5. Special Instructions (Optional)</label>
+                        {{ form.special_instructions }}
+                    </div>
+
+                    <!-- 6. Quantity & Pricing Calculation -->
+                    <div class="p-4 bg-light rounded-3 mb-4">
+                        <div class="row align-items-center g-3">
+                            <div class="col-sm-4">
+                                <label class="form-label fw-bold small text-muted text-uppercase mb-1">Quantity</label>
+                                {{ form.quantity }}
+                            </div>
+                            <div class="col-sm-8 text-sm-end">
+                                <div class="text-muted small">Total Custom Poster Price:</div>
+                                <div class="display-6 fw-bold text-danger" id="customStudioFinalPrice">₹349</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="d-flex flex-column flex-sm-row gap-3">
+                        <button type="submit" name="action" value="add_to_cart" class="btn btn-pk-primary btn-lg flex-grow-1 py-3">
+                            <i class="bi bi-bag-plus me-1"></i> Add Custom Poster to Bag
+                        </button>
+                        <button type="submit" name="action" value="buy_now" class="btn btn-pk-dark btn-lg px-4 py-3">
+                            Proceed to Checkout →
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

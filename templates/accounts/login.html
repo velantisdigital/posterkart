@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Sign In • PosterKart{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-5 col-md-7">
+            <div class="p-4 p-md-5 bg-white rounded-4 border shadow-sm">
+                <div class="text-center mb-4">
+                    <div class="pk-brand text-center justify-content-center mb-2">
+                        <i class="bi bi-palette2 text-danger"></i>
+                        <span>Poster</span>Kart
+                    </div>
+                    <h3 class="fw-bold mb-1">Welcome Back</h3>
+                    <p class="text-muted small">Sign in to manage your orders, wishlist, and profile.</p>
+                </div>
+
+                <!-- Demo Account Help Callout -->
+                <div class="p-3 bg-light rounded-3 border mb-4 small text-muted">
+                    <div class="fw-bold text-dark mb-1"><i class="bi bi-key-fill text-warning me-1"></i> Quick Test Logins:</div>
+                    <div>Customer: <code class="text-danger fw-bold">rahul</code> / <code class="text-danger fw-bold">rahul123</code></div>
+                    <div>Staff Admin: <code class="text-danger fw-bold">admin</code> / <code class="text-danger fw-bold">admin123</code></div>
+                </div>
+
+                <form method="POST">
+                    {% csrf_token %}
+                    <input type="hidden" name="next" value="{{ next }}">
+
+                    <div class="mb-3">
+                        <label class="form-label small fw-bold text-muted">Username or Email</label>
+                        {{ form.username }}
+                    </div>
+
+                    <div class="mb-4">
+                        <div class="d-flex justify-content-between">
+                            <label class="form-label small fw-bold text-muted">Password</label>
+                        </div>
+                        {{ form.password }}
+                    </div>
+
+                    <button type="submit" class="btn btn-pk-primary btn-lg w-100 py-3 fw-bold mb-3">
+                        Sign In <i class="bi bi-box-arrow-in-right ms-1"></i>
+                    </button>
+
+                    <div class="text-center small text-muted">
+                        Don't have an account yet? <a href="{% url 'accounts:register' %}" class="text-danger fw-bold">Create Account</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

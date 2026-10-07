@@ -1,0 +1,279 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{ poster.title }} Wall Poster • PosterKart{% endblock %}
+
+{% block content %}
+<!-- Breadcrumbs -->
+<div class="bg-white border-bottom py-3 mb-4">
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb mb-0 small">
+                <li class="breadcrumb-item"><a href="{% url 'store:home' %}" class="text-muted">Home</a></li>
+                <li class="breadcrumb-item"><a href="{% url 'store:shop' %}" class="text-muted">Shop</a></li>
+                <li class="breadcrumb-item"><a href="{% url 'store:category_detail' slug=poster.category.slug %}" class="text-muted">{{ poster.category.name }}</a></li>
+                <li class="breadcrumb-item active text-dark fw-semibold" aria-current="page">{{ poster.title }}</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+
+<div class="container pb-5">
+    <div class="row g-5">
+        <!-- Left Column: Interactive Wall Mockup & Gallery -->
+        <div class="col-lg-6">
+            <!-- Room Mockup Switcher Controls -->
+            <div class="d-flex align-items-center justify-content-between mb-2">
+                <span class="small fw-bold text-muted text-uppercase">Room Scene Mockup:</span>
+                <div class="btn-group btn-group-sm" role="group">
+                    <button type="button" class="btn btn-dark btn-mockup-scene active" data-scene="living-room">Living Room</button>
+                    <button type="button" class="btn btn-outline-dark btn-mockup-scene" data-scene="bedroom">Bedroom</button>
+                    <button type="button" class="btn btn-outline-dark btn-mockup-scene" data-scene="office">Office</button>
+                </div>
+            </div>
+
+            <!-- Wall Mockup Container -->
+            <div id="mockupContainer" class="mockup-container living-room mb-3">
+                <div id="mockupPosterFrame" class="mockup-poster-frame frame-none">
+                    {% if poster.main_image %}
+                        <img id="mockupPosterImage" src="{{ poster.main_image.url }}" alt="{{ poster.title }}" class="mockup-poster-img">
+                    {% else %}
+                        <img id="mockupPosterImage" src="{% static 'images/placeholder-poster.svg' %}" alt="{{ poster.title }}" class="mockup-poster-img">
+                    {% endif %}
+                </div>
+            </div>
+
+            <!-- Thumbnails Gallery -->
+            <div class="d-flex gap-2">
+                <button type="button" class="btn p-1 border border-2 border-danger rounded-2 product-thumbnail-btn" data-full-src="{{ poster.main_image.url }}">
+                    <img src="{{ poster.main_image.url }}" width="65" height="85" class="rounded object-fit-cover" alt="Main View">
+                </button>
+                {% for img in poster.gallery_images.all %}
+                <button type="button" class="btn p-1 border rounded-2 product-thumbnail-btn" data-full-src="{{ img.image.url }}">
+                    <img src="{{ img.image.url }}" width="65" height="85" class="rounded object-fit-cover" alt="{{ img.alt_text|default:'Gallery Image' }}">
+                </button>
+                {% endfor %}
+            </div>
+        </div>
+
+        <!-- Right Column: Product Configuration & Buy Actions -->
+        <div class="col-lg-6">
+            <div class="ps-lg-3">
+                <div class="d-flex align-items-center justify-content-between mb-1">
+                    <a href="{% url 'store:category_detail' slug=poster.category.slug %}" class="badge bg-light text-dark border text-uppercase fw-bold text-decoration-none">
+                        <i class="bi {{ poster.category.icon }} me-1"></i> {{ poster.category.name }}
+                    </a>
+                    {% if poster.is_in_stock %}
+                        <span class="badge bg-success bg-opacity-10 text-success fw-semibold"><i class="bi bi-check-circle me-1"></i> In Stock</span>
+                    {% else %}
+                        <span class="badge bg-danger bg-opacity-10 text-danger fw-semibold">Out of Stock</span>
+                    {% endif %}
+                </div>
+
+                <h1 class="h2 fw-bold text-dark mb-2">{{ poster.title }}</h1>
+
+                <!-- Rating and Reviews Count -->
+                <div class="d-flex align-items-center gap-3 mb-3">
+                    <div class="d-flex align-items-center text-warning">
+                        <i class="bi bi-star-fill me-1"></i>
+                        <span class="fw-bold text-dark">{{ poster.average_rating }}</span>
+                    </div>
+                    <span class="text-muted small">|</span>
+                    <a href="#reviewsSection" class="text-muted small text-decoration-none">{{ poster.review_count }} Customer Reviews</a>
+                </div>
+
+                <!-- Price Calculation Box -->
+                <div class="p-3 bg-light rounded-3 mb-4 d-flex align-items-baseline gap-3">
+                    <div class="display-6 fw-bold text-danger" id="detailFinalPrice">₹{{ poster.base_price|floatformat:0 }}</div>
+                    <div class="text-muted small">Inclusive of all taxes</div>
+                </div>
+
+                <!-- Configuration Form -->
+                <form action="{% url 'cart:add_to_cart' %}" method="POST" id="productDetailForm" class="ajax-add-to-cart-form" data-base-price="{{ poster.base_price }}">
+                    {% csrf_token %}
+                    <input type="hidden" name="poster_id" value="{{ poster.id }}">
+
+                    <!-- 1. Size Selection -->
+                    <div class="mb-4">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <label class="form-label fw-bold small text-muted text-uppercase mb-0">1. Choose Size</label>
+                            <span class="small text-muted" style="font-size: 0.78rem;"><i class="bi bi-rulers me-1"></i> Size Comparison Chart</span>
+                        </div>
+                        <div class="option-selector-grid">
+                            {% for size in sizes %}
+                            <div>
+                                <input type="radio" name="size_id" value="{{ size.id }}" id="size_{{ size.id }}" class="option-card-radio" data-extra-price="{{ size.extra_price }}" {% if size.is_default or forloop.first %}checked{% endif %}>
+                                <label for="size_{{ size.id }}" class="option-card-label">
+                                    <div class="option-title">{{ size.code }}</div>
+                                    <div class="text-muted small" style="font-size: 0.72rem;">{{ size.dimensions }}</div>
+                                    <div class="option-price mt-1">{% if size.extra_price > 0 %}+₹{{ size.extra_price|floatformat:0 }}{% else %}Standard{% endif %}</div>
+                                </label>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+
+                    <!-- 2. Frame Selection -->
+                    <div class="mb-4">
+                        <label class="form-label fw-bold small text-muted text-uppercase mb-2">2. Choose Framing Option</label>
+                        <div class="option-selector-grid">
+                            {% for frame in frames %}
+                            <div>
+                                <input type="radio" name="frame_id" value="{{ frame.id }}" id="frame_{{ frame.id }}" class="option-card-radio" data-extra-price="{{ frame.extra_price }}" data-frame-type="{{ frame.frame_type }}" {% if frame.is_default or forloop.first %}checked{% endif %}>
+                                <label for="frame_{{ frame.id }}" class="option-card-label">
+                                    <div class="option-title small text-truncate">{{ frame.name.split.0 }}</div>
+                                    <div class="d-flex justify-content-center my-1">
+                                        <span class="d-inline-block rounded-circle border" style="width: 14px; height: 14px; background-color: {{ frame.color_code }};"></span>
+                                    </div>
+                                    <div class="option-price">{% if frame.extra_price > 0 %}+₹{{ frame.extra_price|floatformat:0 }}{% else %}Free (Rolled){% endif %}</div>
+                                </label>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+
+                    <!-- 3. Quantity & Action Buttons -->
+                    <div class="mb-4">
+                        <label class="form-label fw-bold small text-muted text-uppercase mb-2">3. Quantity</label>
+                        <div class="d-flex align-items-center gap-3">
+                            <div class="input-group" style="width: 130px;">
+                                <button type="button" class="btn btn-outline-secondary" onclick="let q = document.getElementById('posterQuantity'); if(q.value > 1) { q.value--; q.dispatchEvent(new Event('input')); }">-</button>
+                                <input type="number" name="quantity" id="posterQuantity" class="form-control text-center fw-bold" value="1" min="1" max="50">
+                                <button type="button" class="btn btn-outline-secondary" onclick="let q = document.getElementById('posterQuantity'); q.value++; q.dispatchEvent(new Event('input'));">+</button>
+                            </div>
+
+                            <button type="submit" name="action" value="add" class="btn btn-pk-primary flex-grow-1 py-3">
+                                <i class="bi bi-bag-plus me-1"></i> Add to Bag
+                            </button>
+
+                            <button type="submit" name="action" value="buy_now" class="btn btn-pk-dark px-4 py-3">
+                                Buy Now
+                            </button>
+
+                            <button type="button" class="btn btn-pk-outline py-3 px-3 btn-wishlist-toggle {% if poster.id in wishlist_poster_ids %}active text-danger{% endif %}" data-poster-id="{{ poster.id }}" title="Wishlist">
+                                <i class="bi {% if poster.id in wishlist_poster_ids %}bi-heart-fill{% else %}bi-heart{% endif %} fs-5"></i>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+
+                <!-- Value Guarantees -->
+                <div class="p-3 bg-light rounded-3 border mb-4">
+                    <div class="row g-2 small">
+                        <div class="col-6 d-flex align-items-center gap-2">
+                            <i class="bi bi-truck text-danger fs-5"></i>
+                            <span>Free shipping on ₹499+</span>
+                        </div>
+                        <div class="col-6 d-flex align-items-center gap-2">
+                            <i class="bi bi-shield-check text-danger fs-5"></i>
+                            <span>100% Secure Checkout</span>
+                        </div>
+                        <div class="col-6 d-flex align-items-center gap-2">
+                            <i class="bi bi-palette text-danger fs-5"></i>
+                            <span>300 GSM Archival Velvet Paper</span>
+                        </div>
+                        <div class="col-6 d-flex align-items-center gap-2">
+                            <i class="bi bi-box text-danger fs-5"></i>
+                            <span>Rigid tube packaging</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Description & Details -->
+                <div class="mb-4">
+                    <h5 class="fw-bold mb-2">Artwork Story & Details</h5>
+                    <p class="text-muted" style="line-height: 1.8;">{{ poster.description }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Customer Reviews Section -->
+    <div id="reviewsSection" class="mt-5 pt-5 border-top">
+        <div class="row g-5">
+            <div class="col-lg-4">
+                <div class="p-4 bg-white rounded-3 border">
+                    <h4 class="fw-bold mb-3">Customer Ratings</h4>
+                    <div class="d-flex align-items-center gap-3 mb-3">
+                        <div class="display-4 fw-bold text-dark">{{ poster.average_rating }}</div>
+                        <div>
+                            <div class="text-warning fs-5">
+                                {% for i in "12345"|make_list %}
+                                    {% if forloop.counter <= poster.average_rating %}★{% else %}☆{% endif %}
+                                {% endfor %}
+                            </div>
+                            <div class="text-muted small">Based on {{ poster.review_count }} ratings</div>
+                        </div>
+                    </div>
+
+                    <!-- Review Form -->
+                    <div class="mt-4 pt-3 border-top">
+                        <h6 class="fw-bold mb-3">Share Your Review</h6>
+                        {% if user.is_authenticated %}
+                        <form action="{% url 'store:add_review' slug=poster.slug %}" method="POST">
+                            {% csrf_token %}
+                            <div class="mb-3">
+                                <label class="form-label small fw-bold text-muted">Your Rating</label>
+                                {{ review_form.rating }}
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label small fw-bold text-muted">Review Details</label>
+                                {{ review_form.review_text }}
+                            </div>
+                            <button type="submit" class="btn btn-pk-dark btn-sm w-100 py-2">
+                                Submit Review
+                            </button>
+                        </form>
+                        {% else %}
+                        <div class="text-muted small mb-3">Please log in to write a verified customer review.</div>
+                        <a href="{% url 'accounts:login' %}?next={{ request.path }}" class="btn btn-pk-outline btn-sm w-100">Log In to Review</a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+
+            <!-- Reviews List -->
+            <div class="col-lg-8">
+                <h4 class="fw-bold mb-4">Reviews & Experiences ({{ poster.review_count }})</h4>
+                <div class="d-flex flex-column gap-3">
+                    {% for review in poster.reviews.all %}
+                    <div class="p-4 bg-white rounded-3 border">
+                        <div class="d-flex justify-content-between align-items-start mb-2">
+                            <div>
+                                <div class="fw-bold text-dark">{{ review.user.first_name|default:review.user.username }}</div>
+                                <div class="text-warning small">
+                                    {% for i in "12345"|make_list %}
+                                        {% if forloop.counter <= review.rating %}★{% else %}☆{% endif %}
+                                    {% endfor %}
+                                    <span class="badge bg-success bg-opacity-10 text-success ms-2 font-monospace" style="font-size: 0.65rem;">VERIFIED BUYER</span>
+                                </div>
+                            </div>
+                            <span class="text-muted small">{{ review.created_at|date:"d M Y" }}</span>
+                        </div>
+                        <p class="text-muted mb-0 small" style="line-height: 1.6;">{{ review.review_text }}</p>
+                    </div>
+                    {% empty %}
+                    <div class="p-4 bg-light rounded-3 text-center text-muted">
+                        No reviews yet for this artwork. Be the first to review!
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Related Posters -->
+    {% if related_posters %}
+    <div class="mt-5 pt-5 border-top">
+        <h3 class="fw-bold mb-4">More in {{ poster.category.name }}</h3>
+        <div class="row g-4">
+            {% for rel_poster in related_posters %}
+            <div class="col-6 col-md-3">
+                {% include 'includes/product_card.html' with poster=rel_poster %}
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

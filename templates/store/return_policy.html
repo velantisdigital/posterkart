@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Returns & Exchanges • PosterKart{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-8 bg-white p-5 rounded-4 border shadow-sm">
+            <h1 class="h3 fw-bold mb-4">Returns & Replacements Policy</h1>
+
+            <h5 class="fw-bold mb-2">1. 7-Day Replacement Guarantee</h5>
+            <p class="text-muted mb-4" style="line-height: 1.8;">
+                If your poster arrives damaged, creased, or defective, we provide an immediate 100% free replacement or full refund within 7 days of delivery.
+            </p>
+
+            <h5 class="fw-bold mb-2">2. How to Request a Replacement</h5>
+            <p class="text-muted mb-4" style="line-height: 1.8;">
+                Simply email our support team at <b class="text-dark">support@posterkart.com</b> or message us on WhatsApp with your Order ID and photos of the damage. We will dispatch a new print within 24 hours.
+            </p>
+
+            <h5 class="fw-bold mb-2">3. Cancellations</h5>
+            <p class="text-muted mb-4" style="line-height: 1.8;">
+                Orders can be cancelled at any time before the package enters the "Shipped" status from your <a href="{% url 'orders:my_orders' %}" class="text-danger fw-bold">My Orders</a> dashboard.
+            </p>
+        </div>
+    </div>
+</div>
+{% endblock %}

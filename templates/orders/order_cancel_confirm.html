@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Cancel Order #{{ order.order_number }} • PosterKart{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-6 col-md-8">
+            <div class="p-5 bg-white rounded-4 border shadow-sm text-center">
+                <div class="text-danger mb-3">
+                    <i class="bi bi-exclamation-triangle-fill display-4"></i>
+                </div>
+                <h3 class="fw-bold mb-2">Cancel Order #{{ order.order_number }}?</h3>
+                <p class="text-muted small mb-4">
+                    Are you sure you want to cancel this order? Once cancelled, we will halt printing and packaging immediately.
+                </p>
+
+                <form action="{% url 'orders:cancel_order' order_number=order.order_number %}" method="POST" class="text-start">
+                    {% csrf_token %}
+                    <div class="mb-4">
+                        <label class="form-label small fw-bold text-muted">Reason for Cancellation (Optional)</label>
+                        <select name="cancellation_reason" class="form-select mb-2">
+                            <option value="Changed mind / Ordered by mistake">Changed mind / Ordered by mistake</option>
+                            <option value="Want to change poster size / frame">Want to change poster size / frame</option>
+                            <option value="Found better alternative">Found better alternative</option>
+                            <option value="Delivery time is too long">Delivery time is too long</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="d-grid gap-2">
+                        <button type="submit" class="btn btn-danger py-2 fw-bold">
+                            Yes, Cancel My Order
+                        </button>
+                        <a href="{% url 'orders:order_detail' order_number=order.order_number %}" class="btn btn-pk-outline py-2">
+                            Keep My Order
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

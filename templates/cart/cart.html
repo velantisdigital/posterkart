@@ -1,0 +1,168 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Shopping Bag • PosterKart{% endblock %}
+
+{% block content %}
+<div class="bg-white border-bottom py-3 mb-4">
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb mb-0 small">
+                <li class="breadcrumb-item"><a href="{% url 'store:home' %}" class="text-muted">Home</a></li>
+                <li class="breadcrumb-item active text-dark fw-semibold" aria-current="page">Shopping Bag</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+
+<div class="container pb-5">
+    <h1 class="h3 fw-bold mb-4">Your Shopping Bag ({% if cart %}{{ cart.total_items }}{% else %}0{% endif %} items)</h1>
+
+    {% if cart_items %}
+    <div class="row g-5">
+        <!-- Left: Cart Items List -->
+        <div class="col-lg-8">
+            <div class="p-4 bg-white rounded-3 border">
+                <div class="table-responsive">
+                    <table class="table align-middle mb-0">
+                        <thead class="text-muted small text-uppercase">
+                            <tr>
+                                <th scope="col" style="min-width: 260px;">Product</th>
+                                <th scope="col">Price</th>
+                                <th scope="col">Quantity</th>
+                                <th scope="col" class="text-end">Total</th>
+                                <th scope="col"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for item in cart_items %}
+                            <tr>
+                                <td>
+                                    <div class="d-flex align-items-center gap-3">
+                                        <img src="{{ item.image_url }}" width="70" height="95" class="rounded object-fit-cover shadow-xs border" alt="{{ item.title }}">
+                                        <div>
+                                            <div class="fw-bold text-dark">{{ item.title }}</div>
+                                            <div class="text-muted small">
+                                                Size: <span class="text-dark fw-semibold">{{ item.size.name }}</span><br>
+                                                Frame: <span class="text-dark fw-semibold">{{ item.frame.name }}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="fw-semibold text-muted">₹{{ item.unit_price|floatformat:0 }}</td>
+                                <td>
+                                    <div class="d-flex align-items-center border rounded" style="width: fit-content;">
+                                        <button type="button" class="btn btn-sm btn-link text-dark px-2 py-0" onclick="updateCartItemQty({{ item.id }}, 'decrease')">−</button>
+                                        <span class="px-2 small fw-bold">{{ item.quantity }}</span>
+                                        <button type="button" class="btn btn-sm btn-link text-dark px-2 py-0" onclick="updateCartItemQty({{ item.id }}, 'increase')">+</button>
+                                    </div>
+                                </td>
+                                <td class="text-end fw-bold text-dark fs-6">₹{{ item.total_price|floatformat:0 }}</td>
+                                <td class="text-end">
+                                    <form action="{% url 'cart:remove_cart_item' item_id=item.id %}" method="POST" class="d-inline">
+                                        {% csrf_token %}
+                                        <button type="submit" class="btn btn-sm text-danger p-0" title="Remove item">
+                                            <i class="bi bi-trash3 fs-5"></i>
+                                        </button>
+                                    </form>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="d-flex justify-content-between align-items-center pt-4 mt-3 border-top">
+                    <a href="{% url 'store:shop' %}" class="btn btn-pk-outline btn-sm">
+                        <i class="bi bi-arrow-left me-1"></i> Continue Shopping
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right: Order Summary & Coupon -->
+        <div class="col-lg-4">
+            <!-- Free Delivery Progress Card -->
+            <div class="p-4 bg-light rounded-3 border mb-4">
+                <div class="d-flex justify-content-between small mb-2">
+                    <span class="fw-bold">Free Shipping on ₹{{ FREE_DELIVERY_THRESHOLD|floatformat:0 }}+</span>
+                    <span>{% if subtotal >= FREE_DELIVERY_THRESHOLD %}Unlocked!{% else %}₹{{ amount_needed_for_free_delivery|floatformat:0 }} left{% endif %}</span>
+                </div>
+                <div class="progress mb-2" style="height: 6px;">
+                    <div class="progress-bar bg-danger" role="progressbar" style="width: {{ delivery_progress_percent }}%;"></div>
+                </div>
+                <div class="small text-muted">
+                    {% if subtotal >= FREE_DELIVERY_THRESHOLD %}
+                        <span class="text-success fw-semibold"><i class="bi bi-check2-circle me-1"></i> Congrats! You qualify for Free Standard Delivery.</span>
+                    {% else %}
+                        <span>Add posters worth <b>₹{{ amount_needed_for_free_delivery|floatformat:0 }}</b> more to save ₹{{ STANDARD_DELIVERY_CHARGE|floatformat:0 }} delivery fee!</span>
+                    {% endif %}
+                </div>
+            </div>
+
+            <!-- Coupon Box -->
+            <div class="p-4 bg-white rounded-3 border mb-4">
+                <h6 class="fw-bold mb-3"><i class="bi bi-tag me-2 text-danger"></i>Apply Discount Coupon</h6>
+                {% if cart.coupon %}
+                <div class="p-3 bg-success bg-opacity-10 rounded-2 border border-success border-opacity-25 d-flex align-items-center justify-content-between">
+                    <div>
+                        <div class="fw-bold text-success font-monospace">{{ cart.coupon.code }}</div>
+                        <div class="small text-muted">Coupon applied (Saved ₹{{ discount_amount|floatformat:0 }})</div>
+                    </div>
+                    <form action="{% url 'cart:remove_coupon' %}" method="POST">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-sm btn-outline-danger py-1 px-2">Remove</button>
+                    </form>
+                </div>
+                {% else %}
+                <form action="{% url 'cart:apply_coupon' %}" method="POST" class="d-flex gap-2">
+                    {% csrf_token %}
+                    <input type="text" name="coupon_code" class="form-control text-uppercase font-monospace" placeholder="e.g. POSTER10" required>
+                    <button type="submit" class="btn btn-pk-dark px-3">Apply</button>
+                </form>
+                <div class="small text-muted mt-2">Available test coupons: <b class="text-dark">POSTER10</b> (10% Off), <b class="text-dark">SAVE100</b> (₹100 Off on ₹499+)</div>
+                {% endif %}
+            </div>
+
+            <!-- Order Summary Card -->
+            <div class="p-4 bg-white rounded-3 border">
+                <h5 class="fw-bold mb-3">Order Summary</h5>
+                <div class="d-flex justify-content-between mb-2">
+                    <span class="text-muted">Bag Subtotal</span>
+                    <span class="fw-semibold">₹{{ subtotal|floatformat:0 }}</span>
+                </div>
+                <div class="d-flex justify-content-between mb-2">
+                    <span class="text-muted">Estimated Delivery</span>
+                    <span class="fw-semibold text-success">{% if delivery_charge == 0 %}FREE{% else %}₹{{ delivery_charge|floatformat:0 }}{% endif %}</span>
+                </div>
+                {% if discount_amount > 0 %}
+                <div class="d-flex justify-content-between mb-2 text-success">
+                    <span>Coupon Discount</span>
+                    <span class="fw-semibold">- ₹{{ discount_amount|floatformat:0 }}</span>
+                </div>
+                {% endif %}
+                <hr>
+                <div class="d-flex justify-content-between align-items-baseline mb-4">
+                    <span class="fw-bold text-dark fs-5">Estimated Total</span>
+                    <span class="display-6 fw-bold text-danger">₹{{ total_amount|floatformat:0 }}</span>
+                </div>
+
+                <a href="{% url 'orders:checkout' %}" class="btn btn-pk-primary btn-lg w-100 py-3 fw-bold">
+                    Proceed to Checkout <i class="bi bi-arrow-right ms-1"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+    {% else %}
+    <!-- Empty Cart State -->
+    <div class="text-center py-5 bg-white rounded-4 border my-4">
+        <div class="fs-1 text-muted mb-3"><i class="bi bi-bag-x"></i></div>
+        <h3 class="fw-bold mb-2">Your cart is waiting for something beautiful.</h3>
+        <p class="text-muted small mb-4 max-w-400 mx-auto">Explore our curated collection of wall art, cinema posters, anime prints, and custom frames.</p>
+        <a href="{% url 'store:shop' %}" class="btn btn-pk-primary btn-lg px-4">
+            Explore Posters Gallery <i class="bi bi-arrow-right ms-1"></i>
+        </a>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

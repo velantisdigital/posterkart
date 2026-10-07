@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Contact & Help Center • PosterKart{% endblock %}
+
+{% block content %}
+<div class="bg-dark text-white py-5 mb-5 text-center">
+    <div class="container">
+        <h1 class="display-5 fw-bold mb-2">How Can We Help You?</h1>
+        <p class="text-muted max-w-600 mx-auto">Have questions regarding poster custom sizes, order tracking, bulk corporate orders, or exchanges? We are here for you.</p>
+    </div>
+</div>
+
+<div class="container pb-5">
+    <div class="row g-5">
+        <!-- Contact Form -->
+        <div class="col-lg-7">
+            <div class="p-4 p-md-5 bg-white rounded-4 border shadow-sm">
+                <h4 class="fw-bold mb-4">Send Us a Message</h4>
+                <form method="POST">
+                    {% csrf_token %}
+                    <div class="row g-3 mb-4">
+                        <div class="col-md-6">
+                            <label class="form-label small fw-bold text-muted">Your Name *</label>
+                            {{ form.name }}
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label small fw-bold text-muted">Email Address *</label>
+                            {{ form.email }}
+                        </div>
+                        <div class="col-12">
+                            <label class="form-label small fw-bold text-muted">Subject / Order Number *</label>
+                            {{ form.subject }}
+                        </div>
+                        <div class="col-12">
+                            <label class="form-label small fw-bold text-muted">Message / Inquiries *</label>
+                            {{ form.message }}
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-pk-primary px-4 py-2 fw-bold">
+                        Send Message <i class="bi bi-send ms-1"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Contact Cards & Info -->
+        <div class="col-lg-5">
+            <div class="d-flex flex-column gap-4">
+                <div class="p-4 bg-white rounded-3 border">
+                    <div class="d-flex gap-3 align-items-center">
+                        <div class="bg-danger bg-opacity-10 text-danger p-3 rounded-circle fs-4"><i class="bi bi-envelope"></i></div>
+                        <div>
+                            <div class="fw-bold">Email Support</div>
+                            <div class="text-muted small">support@posterkart.com</div>
+                            <div class="text-muted small">Response time: ~2-4 hours</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="p-4 bg-white rounded-3 border">
+                    <div class="d-flex gap-3 align-items-center">
+                        <div class="bg-danger bg-opacity-10 text-danger p-3 rounded-circle fs-4"><i class="bi bi-telephone"></i></div>
+                        <div>
+                            <div class="fw-bold">Phone / WhatsApp</div>
+                            <div class="text-muted small">+91 (800) 123-4567</div>
+                            <div class="text-muted small">Mon - Sat: 9:00 AM - 7:00 PM IST</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="p-4 bg-white rounded-3 border">
+                    <div class="d-flex gap-3 align-items-center">
+                        <div class="bg-danger bg-opacity-10 text-danger p-3 rounded-circle fs-4"><i class="bi bi-geo-alt"></i></div>
+                        <div>
+                            <div class="fw-bold">PosterKart Studio HQ</div>
+                            <div class="text-muted small">Indiranagar 100ft Road, Bengaluru, Karnataka 560038</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

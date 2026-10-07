@@ -1,0 +1,124 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Payment Gateway • Order #{{ order.order_number }}{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-7 col-md-9">
+            <!-- Simulated Payment Gateway Frame -->
+            <div class="card border-0 rounded-4 shadow-lg overflow-hidden">
+                <!-- Header -->
+                <div class="card-header bg-dark text-white p-4 d-flex justify-content-between align-items-center">
+                    <div>
+                        <div class="badge bg-warning text-dark fw-bold mb-1">DEMO PAYMENT SIMULATOR</div>
+                        <h4 class="mb-0 fw-bold">PosterKart Pay</h4>
+                        <div class="text-muted small">Order ID: {{ order.order_number }}</div>
+                    </div>
+                    <div class="text-end">
+                        <div class="small text-muted">Amount Due</div>
+                        <div class="fs-3 fw-bold text-white">₹{{ order.total_amount|floatformat:0 }}</div>
+                    </div>
+                </div>
+
+                <!-- Gateway Body -->
+                <div class="card-body p-4 p-md-5 bg-white">
+                    <p class="text-muted small mb-4">
+                        <i class="bi bi-info-circle text-primary me-1"></i> This is a realistic demonstration payment gateway for testing complete order flow without a live merchant account.
+                    </p>
+
+                    <!-- Tabs for Payment Modes -->
+                    <ul class="nav nav-pills nav-fill mb-4 p-1 bg-light rounded-3" id="paymentTabs" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active fw-bold small py-2" id="upi-tab" data-bs-toggle="tab" data-bs-target="#upi-pane" type="button" role="tab"><i class="bi bi-qr-code-scan me-1"></i> UPI / QR</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link fw-bold small py-2" id="card-tab" data-bs-toggle="tab" data-bs-target="#card-pane" type="button" role="tab"><i class="bi bi-credit-card me-1"></i> Cards</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link fw-bold small py-2" id="netbanking-tab" data-bs-toggle="tab" data-bs-target="#netbanking-pane" type="button" role="tab"><i class="bi bi-bank me-1"></i> NetBanking</button>
+                        </li>
+                    </ul>
+
+                    <div class="tab-content mb-4" id="paymentTabsContent">
+                        <!-- UPI Pane -->
+                        <div class="tab-pane fade show active text-center p-3" id="upi-pane" role="tabpanel">
+                            <div class="p-3 bg-light rounded-3 d-inline-block mb-3 border">
+                                <i class="bi bi-qr-code fs-1 text-dark" style="font-size: 5rem !important;"></i>
+                            </div>
+                            <div class="fw-bold mb-1">Scan QR Code using any UPI App</div>
+                            <div class="text-muted small mb-3">Google Pay, PhonePe, Paytm, BHIM</div>
+                            <div class="max-w-300 mx-auto">
+                                <div class="input-group input-group-sm">
+                                    <input type="text" class="form-control" value="rahul@okhdfcbank" readonly>
+                                    <span class="input-group-text bg-success text-white">Verified</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card Pane -->
+                        <div class="tab-pane fade p-3" id="card-pane" role="tabpanel">
+                            <div class="mb-3">
+                                <label class="form-label small fw-bold text-muted">Card Number</label>
+                                <input type="text" class="form-control" value="4532 •••• •••• 8892" readonly>
+                            </div>
+                            <div class="row g-3 mb-3">
+                                <div class="col-6">
+                                    <label class="form-label small fw-bold text-muted">Expiry Date</label>
+                                    <input type="text" class="form-control" value="08/29" readonly>
+                                </div>
+                                <div class="col-6">
+                                    <label class="form-label small fw-bold text-muted">CVV</label>
+                                    <input type="password" class="form-control" value="123" readonly>
+                                </div>
+                            </div>
+                            <div class="mb-2">
+                                <label class="form-label small fw-bold text-muted">Cardholder Name</label>
+                                <input type="text" class="form-control" value="{{ order.shipping_full_name }}" readonly>
+                            </div>
+                        </div>
+
+                        <!-- NetBanking Pane -->
+                        <div class="tab-pane fade p-3" id="netbanking-pane" role="tabpanel">
+                            <label class="form-label small fw-bold text-muted mb-2">Select Your Bank</label>
+                            <div class="row g-2">
+                                <div class="col-6">
+                                    <div class="p-2 border rounded text-center bg-light fw-bold small text-dark"><i class="bi bi-bank me-1"></i> HDFC Bank</div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="p-2 border rounded text-center bg-light fw-bold small text-dark"><i class="bi bi-bank me-1"></i> State Bank of India</div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="p-2 border rounded text-center bg-light fw-bold small text-dark"><i class="bi bi-bank me-1"></i> ICICI Bank</div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="p-2 border rounded text-center bg-light fw-bold small text-dark"><i class="bi bi-bank me-1"></i> Axis Bank</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Payment Action Form -->
+                    <form action="{% url 'orders:demo_payment' order_number=order.order_number %}" method="POST">
+                        {% csrf_token %}
+                        <div class="d-grid gap-2">
+                            <button type="submit" name="action" value="success" class="btn btn-success btn-lg py-3 fw-bold shadow-sm">
+                                <i class="bi bi-shield-check me-2"></i> Simulate Successful Payment (₹{{ order.total_amount|floatformat:0 }})
+                            </button>
+                            <button type="submit" name="action" value="failure" class="btn btn-outline-danger py-2 small">
+                                <i class="bi bi-x-circle me-1"></i> Simulate Payment Failure (Test Error State)
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Footer info -->
+                <div class="card-footer bg-light p-3 text-center small text-muted">
+                    <i class="bi bi-lock-fill text-success me-1"></i> 256-Bit SSL End-to-End Encryption • Architecture Ready for Live Razorpay Integration
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

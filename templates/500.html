@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Server Error • PosterKart{% endblock %}
+
+{% block content %}
+<div class="container py-5 text-center my-5">
+    <div class="py-5">
+        <div class="display-1 fw-bold text-danger mb-2 font-monospace">500</div>
+        <h2 class="fw-bold mb-3">Internal Server Glitch</h2>
+        <p class="text-muted small mb-4 max-w-400 mx-auto">Our printing press hit an unexpected snag. Our engineering team has been notified.</p>
+        <a href="{% url 'store:home' %}" class="btn btn-pk-dark px-4 py-2">Return Home</a>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Order Confirmed #{{ order.order_number }} • PosterKart{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-7 col-md-9 text-center">
+            <!-- Celebratory Card -->
+            <div class="p-5 bg-white rounded-4 border shadow-sm my-4">
+                <div class="mb-4">
+                    <div class="bg-success bg-opacity-10 text-success rounded-circle d-inline-flex align-items-center justify-content-center" style="width: 80px; height: 80px;">
+                        <i class="bi bi-check-lg display-4"></i>
+                    </div>
+                </div>
+
+                <h2 class="fw-bold mb-2">Order Confirmed!</h2>
+                <p class="text-muted mb-4">
+                    Thank you for your purchase. We have received your order and our printing studio has begun crafting your wall art.
+                </p>
+
+                <!-- Order Receipt Snapshot -->
+                <div class="p-4 bg-light rounded-3 text-start mb-4 border">
+                    <div class="row g-3">
+                        <div class="col-6">
+                            <div class="text-muted small">Order Number</div>
+                            <div class="fw-bold text-dark font-monospace">{{ order.order_number }}</div>
+                        </div>
+                        <div class="col-6 text-end">
+                            <div class="text-muted small">Total Paid</div>
+                            <div class="fw-bold text-danger fs-5">₹{{ order.total_amount|floatformat:0 }}</div>
+                        </div>
+                        <div class="col-6">
+                            <div class="text-muted small">Payment Method</div>
+                            <div class="fw-semibold text-dark">{{ order.get_payment_method_display }}</div>
+                        </div>
+                        <div class="col-6 text-end">
+                            <div class="text-muted small">Estimated Delivery</div>
+                            <div class="fw-semibold text-dark">{{ estimated_delivery|date:"D, d M Y" }}</div>
+                        </div>
+                        <div class="col-12 pt-2 border-top">
+                            <div class="text-muted small">Delivering To</div>
+                            <div class="text-dark small">{{ order.shipping_full_name }} • {{ order.formatted_shipping_address }}</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="d-flex flex-column flex-sm-row justify-content-center gap-3">
+                    <a href="{% url 'orders:order_tracking' order_number=order.order_number %}" class="btn btn-pk-primary px-4 py-2">
+                        <i class="bi bi-truck me-1"></i> Track Order Live
+                    </a>
+                    <a href="{% url 'orders:order_detail' order_number=order.order_number %}" class="btn btn-pk-outline px-4 py-2">
+                        View Order Details
+                    </a>
+                    <a href="{% url 'store:shop' %}" class="btn btn-pk-dark px-4 py-2">
+                        Continue Shopping
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

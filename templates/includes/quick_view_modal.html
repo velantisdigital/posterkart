@@ -1,0 +1,62 @@
+{% load static %}
+<!-- Quick View Modal -->
+<div class="modal fade" id="quickViewModal" tabindex="-1" aria-labelledby="quickViewModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content border-0 rounded-4 shadow-lg overflow-hidden">
+            <div class="modal-body p-0">
+                <div class="row g-0">
+                    <!-- Left: Large Image -->
+                    <div class="col-md-6 bg-light position-relative text-center p-3 d-flex align-items-center justify-content-center">
+                        <img id="qvImage" src="{% static 'images/placeholder-poster.svg' %}" alt="Poster Artwork" class="img-fluid rounded-3 shadow-md" style="max-height: 480px; width: auto; object-fit: contain;">
+                        <button type="button" class="btn-close position-absolute top-0 start-0 m-3 d-md-none bg-white p-2 rounded-circle" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+
+                    <!-- Right: Product Info & Form -->
+                    <div class="col-md-6 p-4 p-lg-5 d-flex flex-column justify-content-between">
+                        <div>
+                            <div class="d-flex justify-content-between align-items-start mb-1">
+                                <div id="qvCategory" class="text-uppercase text-muted fw-bold small">Category</div>
+                                <button type="button" class="btn-close d-none d-md-block" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <h4 id="qvTitle" class="fw-bold mb-2">Poster Title</h4>
+                            <div class="d-flex align-items-center gap-2 mb-3">
+                                <span id="qvRating" class="badge bg-warning text-dark fw-bold">★ 4.8</span>
+                                <span class="text-muted small">Verified Print Quality</span>
+                            </div>
+                            <div class="fs-3 fw-bold text-danger mb-3" id="qvPrice">₹299</div>
+                            <p id="qvDescription" class="text-muted small mb-4">Description...</p>
+
+                            <!-- Add to cart form -->
+                            <form action="{% url 'cart:add_to_cart' %}" method="POST" class="ajax-add-to-cart-form">
+                                {% csrf_token %}
+                                <input type="hidden" name="poster_id" id="qvPosterId" value="">
+
+                                <div class="mb-3">
+                                    <label class="form-label fw-bold small text-muted text-uppercase mb-2">Select Size</label>
+                                    <div id="qvSizeGrid" class="option-selector-grid"></div>
+                                </div>
+
+                                <div class="mb-4">
+                                    <label class="form-label fw-bold small text-muted text-uppercase mb-2">Select Framing</label>
+                                    <div id="qvFrameGrid" class="option-selector-grid"></div>
+                                </div>
+
+                                <div class="d-flex gap-2">
+                                    <button type="submit" class="btn btn-pk-primary flex-grow-1 py-2">
+                                        <i class="bi bi-bag-plus me-1"></i> Add to Cart
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+
+                        <div class="mt-4 pt-3 border-top text-center">
+                            <a id="qvDetailLink" href="#" class="text-decoration-none text-dark small fw-bold">
+                                View Full Details & Room Mockup →
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

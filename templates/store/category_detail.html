@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{ category.name }} Wall Posters • PosterKart Collection{% endblock %}
+
+{% block content %}
+<!-- Category Header -->
+<div class="bg-dark text-white py-5 mb-4 position-relative overflow-hidden">
+    <div class="container position-relative" style="z-index: 2;">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb text-muted small mb-2">
+                <li class="breadcrumb-item"><a href="{% url 'store:home' %}" class="text-muted">Home</a></li>
+                <li class="breadcrumb-item"><a href="{% url 'store:shop' %}" class="text-muted">Shop</a></li>
+                <li class="breadcrumb-item active text-white" aria-current="page">{{ category.name }}</li>
+            </ol>
+        </nav>
+        <div class="d-flex align-items-center gap-3 mb-2">
+            <div class="bg-danger p-2 rounded-3 text-white fs-3 d-inline-flex"><i class="bi {{ category.icon }}"></i></div>
+            <h1 class="display-6 fw-bold mb-0">{{ category.name }} Posters</h1>
+        </div>
+        <p class="text-muted mb-0 max-w-600">{{ category.description }}</p>
+    </div>
+</div>
+
+<div class="container pb-5">
+    <!-- Top Sorting & Count -->
+    <div class="d-flex justify-content-between align-items-center pb-3 mb-4 border-bottom">
+        <div class="text-muted small">
+            Showing <b class="text-dark">{{ total_count }}</b> posters in {{ category.name }}
+        </div>
+        <div class="d-flex align-items-center gap-2">
+            <label for="catSortSelector" class="small text-muted text-nowrap mb-0">Sort By:</label>
+            <select id="catSortSelector" class="form-select form-select-sm shadow-none" style="width: auto;" onchange="updateSort(this.value)">
+                <option value="popular" {% if current_sort == 'popular' %}selected{% endif %}>Most Popular</option>
+                <option value="newest" {% if current_sort == 'newest' %}selected{% endif %}>Newest Arrivals</option>
+                <option value="price_low" {% if current_sort == 'price_low' %}selected{% endif %}>Price: Low to High</option>
+                <option value="price_high" {% if current_sort == 'price_high' %}selected{% endif %}>Price: High to Low</option>
+                <option value="rating" {% if current_sort == 'rating' %}selected{% endif %}>Highest Rated</option>
+            </select>
+        </div>
+    </div>
+
+    {% if posters %}
+    <div class="row g-4">
+        {% for poster in posters %}
+            {% if poster.has_valid_image and poster.title and poster.base_price %}
+            <div class="col-6 col-md-4 col-lg-3">
+                {% include 'includes/product_card.html' with poster=poster %}
+            </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+
+    <!-- Pagination -->
+    {% if page_obj.has_other_pages %}
+    <nav class="mt-5 d-flex justify-content-center">
+        <ul class="pagination">
+            {% if page_obj.has_previous %}
+            <li class="page-item"><a class="page-link" href="?page={{ page_obj.previous_page_number }}&sort={{ current_sort }}">&laquo; Previous</a></li>
+            {% endif %}
+            {% for num in page_obj.paginator.page_range %}
+            <li class="page-item {% if page_obj.number == num %}active{% endif %}"><a class="page-link" href="?page={{ num }}&sort={{ current_sort }}">{{ num }}</a></li>
+            {% endfor %}
+            {% if page_obj.has_next %}
+            <li class="page-item"><a class="page-link" href="?page={{ page_obj.next_page_number }}&sort={{ current_sort }}">Next &raquo;</a></li>
+            {% endif %}
+        </ul>
+    </nav>
+    {% endif %}
+
+    {% else %}
+    <div class="text-center py-5 my-4 bg-white rounded-4 border shadow-xs p-4 p-md-5" style="max-width: 580px; margin: 0 auto;">
+        <div class="fs-1 text-danger mb-3"><i class="bi bi-brush"></i></div>
+        <h3 class="fw-bold mb-2">No posters available yet</h3>
+        <p class="text-muted mb-4">New designs are coming soon for {{ category.name }}. Explore our complete collection in the meantime.</p>
+        <a href="{% url 'store:shop' %}" class="btn btn-pk-primary px-4 py-2">
+            <i class="bi bi-grid me-2"></i> Browse All Posters
+        </a>
+    </div>
+    {% endif %}
+</div>
+
+<script>
+function updateSort(val) {
+    const urlParams = new URLSearchParams(window.location.search);
+    urlParams.set('sort', val);
+    window.location.search = urlParams.toString();
+}
+</script>
+{% endblock %}

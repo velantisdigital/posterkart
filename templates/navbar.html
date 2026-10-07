@@ -1,0 +1,148 @@
+{% load static %}
+<nav class="navbar navbar-expand-lg pk-navbar sticky-top">
+    <div class="container">
+        <!-- Brand Logo -->
+        <a class="pk-brand" href="{% url 'store:home' %}">
+            <i class="bi bi-palette2 text-danger"></i>
+            <span>Poster</span>Kart
+            <span class="pk-brand-badge">STUDIO</span>
+        </a>
+
+        <!-- Mobile Controls (Search & Cart & Toggle) -->
+        <div class="d-flex align-items-center gap-2 d-lg-none">
+            <button class="nav-icon-btn btn-open-cart-drawer position-relative" aria-label="Cart">
+                <i class="bi bi-bag fs-5"></i>
+                <span class="badge-count navbar-cart-count" style="display: {% if cart_items_count > 0 %}flex{% else %}none{% endif %};">{{ cart_items_count }}</span>
+            </button>
+            <button class="navbar-toggler border-0 shadow-none p-1" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="bi bi-list fs-2 text-dark"></i>
+            </button>
+        </div>
+
+        <!-- Navbar Main Links -->
+        <div class="collapse navbar-collapse" id="navbarContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-3 gap-1">
+                <li class="nav-item">
+                    <a class="nav-link {% if request.resolver_match.url_name == 'home' %}active{% endif %}" href="{% url 'store:home' %}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {% if request.resolver_match.url_name == 'shop' %}active{% endif %}" href="{% url 'store:shop' %}">Shop All</a>
+                </li>
+                <!-- Categories Dropdown -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Categories
+                    </a>
+                    <ul class="dropdown-menu border-0 shadow-lg p-2 rounded-3" style="min-width: 240px;">
+                        {% for cat in all_categories %}
+                        <li>
+                            <a class="dropdown-item py-2 px-3 rounded-2 d-flex align-items-center justify-content-between" href="{% url 'store:category_detail' slug=cat.slug %}">
+                                <span><i class="bi {{ cat.icon }} me-2 text-muted"></i>{{ cat.name }}</span>
+                                <span class="badge bg-light text-muted rounded-pill small">{{ cat.poster_count }}</span>
+                            </a>
+                        </li>
+                        {% endfor %}
+                        <li><hr class="dropdown-divider"></li>
+                        <li>
+                            <a class="dropdown-item text-center small text-danger fw-bold py-2" href="{% url 'store:shop' %}">Browse All Posters →</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {% if 'custom-poster' in request.path %}active{% endif %} text-danger fw-bold" href="{% url 'customposters:create' %}">
+                        <i class="bi bi-stars me-1"></i>Custom Poster
+                    </a>
+                </li>
+                {% if user.is_authenticated %}
+                <li class="nav-item">
+                    <a class="nav-link {% if 'orders' in request.path %}active{% endif %}" href="{% url 'orders:my_orders' %}">My Orders</a>
+                </li>
+                {% endif %}
+            </ul>
+
+            <!-- Search Form with Live Suggestions -->
+            <div class="search-wrapper me-lg-3 my-2 my-lg-0">
+                <form action="{% url 'store:shop' %}" method="GET" class="position-relative">
+                    <i class="bi bi-search search-icon-inside"></i>
+                    <input type="search" name="q" id="globalSearchInput" class="search-input" placeholder="Search posters, anime, movies..." value="{{ request.GET.q|default:'' }}" autocomplete="off">
+                </form>
+                <div id="searchSuggestionsDropdown" class="search-suggestions-dropdown"></div>
+            </div>
+
+            <!-- Right Navigation / Wishlist & User & Cart Drawer Button -->
+            <div class="d-flex align-items-center gap-2">
+                <!-- Wishlist Icon -->
+                <a href="{% url 'cart:wishlist' %}" class="nav-icon-btn position-relative" title="Saved Wishlist">
+                    <i class="bi bi-heart fs-5"></i>
+                    <span id="navbarWishlistCount" class="badge-count" style="display: {% if wishlist_count > 0 %}flex{% else %}none{% endif %};">{{ wishlist_count }}</span>
+                </a>
+
+                <!-- Cart Drawer Trigger Button -->
+                <button class="nav-icon-btn btn-open-cart-drawer position-relative d-none d-lg-inline-flex" title="Cart Drawer">
+                    <i class="bi bi-bag fs-5"></i>
+                    <span class="badge-count navbar-cart-count" style="display: {% if cart_items_count > 0 %}flex{% else %}none{% endif %};">{{ cart_items_count }}</span>
+                </button>
+
+                <!-- User Account Dropdown -->
+                {% if user.is_authenticated %}
+                <div class="dropdown">
+                    <button class="btn btn-pk-outline py-2 px-3 dropdown-toggle d-flex align-items-center gap-2" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="bi bi-person-circle fs-5 text-dark"></i>
+                        <span class="fw-semibold text-truncate d-none d-md-inline" style="max-width: 100px;">{{ user.first_name|default:user.username }}</span>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end border-0 shadow-lg p-2 rounded-3" style="min-width: 220px;">
+                        <li class="px-3 py-2 border-bottom mb-1">
+                            <div class="fw-bold text-dark">{{ user.get_full_name|default:user.username }}</div>
+                            <div class="text-muted small text-truncate">{{ user.email }}</div>
+                        </li>
+                        {% if user.is_staff %}
+                        <li>
+                            <a class="dropdown-item py-2 px-3 rounded-2 text-primary fw-semibold" href="{% url 'store:admin_dashboard' %}">
+                                <i class="bi bi-speedometer2 me-2"></i>Admin Dashboard
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item py-2 px-3 rounded-2" href="/admin/" target="_blank">
+                                <i class="bi bi-shield-lock me-2"></i>Django Admin
+                            </a>
+                        </li>
+                        <li><hr class="dropdown-divider"></li>
+                        {% endif %}
+                        <li>
+                            <a class="dropdown-item py-2 px-3 rounded-2" href="{% url 'accounts:profile' %}">
+                                <i class="bi bi-person me-2"></i>My Profile
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item py-2 px-3 rounded-2" href="{% url 'orders:my_orders' %}">
+                                <i class="bi bi-box-seam me-2"></i>My Orders
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item py-2 px-3 rounded-2" href="{% url 'accounts:addresses' %}">
+                                <i class="bi bi-geo-alt me-2"></i>Saved Addresses
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item py-2 px-3 rounded-2" href="{% url 'cart:wishlist' %}">
+                                <i class="bi bi-heart me-2"></i>My Wishlist
+                            </a>
+                        </li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li>
+                            <a class="dropdown-item py-2 px-3 rounded-2 text-danger" href="{% url 'accounts:logout' %}">
+                                <i class="bi bi-box-arrow-right me-2"></i>Logout
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                {% else %}
+                <div class="d-flex align-items-center gap-2">
+                    <a href="{% url 'accounts:login' %}" class="btn btn-pk-outline py-2 px-3">Login</a>
+                    <a href="{% url 'accounts:register' %}" class="btn btn-pk-dark py-2 px-3 d-none d-sm-inline-flex">Sign Up</a>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</nav>

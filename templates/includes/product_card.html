@@ -1,0 +1,54 @@
+{% load static %}
+{% if poster and poster.title and poster.base_price and poster.main_image %}
+<div class="product-card h-100">
+    <!-- Image Box -->
+    <div class="product-image-box">
+        <a href="{{ poster.get_absolute_url }}">
+            <img src="{{ poster.main_image.url }}" alt="{{ poster.title }}" loading="lazy">
+        </a>
+
+        <!-- Badges -->
+        <div class="product-badges">
+            {% if poster.is_trending %}
+                <span class="badge-pk badge-trending">Trending</span>
+            {% elif poster.is_featured %}
+                <span class="badge-pk badge-featured">Featured</span>
+            {% elif poster.is_bestseller %}
+                <span class="badge-pk bg-warning text-dark">Bestseller</span>
+            {% endif %}
+        </div>
+
+        <!-- Wishlist Button -->
+        <button type="button" class="btn-wishlist-card btn-wishlist-toggle {% if poster.id in wishlist_poster_ids %}active{% endif %}" data-poster-id="{{ poster.id }}" title="Wishlist">
+            <i class="bi {% if poster.id in wishlist_poster_ids %}bi-heart-fill text-danger{% else %}bi-heart{% endif %}"></i>
+        </button>
+
+        <!-- Quick View Overlay Button -->
+        <button type="button" class="btn-quick-view" data-slug="{{ poster.slug }}">
+            <i class="bi bi-eye me-1"></i> Quick View
+        </button>
+    </div>
+
+    <!-- Card Body -->
+    <div class="product-body">
+        <div class="product-category">{{ poster.category.name }}</div>
+        <a href="{{ poster.get_absolute_url }}" class="product-title" title="{{ poster.title }}">
+            {{ poster.title }}
+        </a>
+        <div class="product-rating">
+            <i class="bi bi-star-fill"></i>
+            <span class="fw-bold text-dark">{{ poster.average_rating }}</span>
+            <span class="text-muted small">({{ poster.review_count }})</span>
+        </div>
+        <div class="product-price-row">
+            <div>
+                <div class="small text-muted" style="font-size: 0.72rem;">FROM</div>
+                <div class="product-price">₹{{ poster.base_price|floatformat:0 }}</div>
+            </div>
+            <button type="button" class="btn-add-cart-card btn-quick-add-cart" data-poster-id="{{ poster.id }}" title="Add to Bag">
+                <i class="bi bi-bag-plus fs-5"></i>
+            </button>
+        </div>
+    </div>
+</div>
+{% endif %}

@@ -1,0 +1,325 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}PosterKart • Premium Wall Art, Anime, Movie & Custom Posters{% endblock %}
+
+{% block content %}
+<!-- 1. Hero Section -->
+<section class="hero-section">
+    <div class="container">
+        <div class="row align-items-center g-5">
+            <!-- Left Column: Copy & Actions -->
+            <div class="col-lg-6">
+                <div class="hero-badge">
+                    <i class="bi bi-patch-check-fill text-warning"></i>
+                    <span>India's Premium Wall Art Marketplace</span>
+                </div>
+                <h1 class="hero-title">
+                    Turn Your Walls<br>
+                    <span style="color: var(--accent);">Into Stories.</span>
+                </h1>
+                <p class="hero-subtitle">
+                    Discover thousands of museum-grade art prints, iconic cinema tributes, aesthetic anime vibes, and bespoke custom framed posters designed to elevate your living space.
+                </p>
+                <div class="d-flex flex-wrap gap-3 mb-4">
+                    <a href="{% url 'store:shop' %}" class="btn btn-pk-primary btn-lg px-4 py-3">
+                        <i class="bi bi-grid me-2"></i> Shop Posters
+                    </a>
+                    <a href="{% url 'customposters:create' %}" class="btn btn-pk-outline btn-lg px-4 py-3 text-white border-white border-opacity-50">
+                        <i class="bi bi-stars me-2 text-warning"></i> Create Custom Poster
+                    </a>
+                </div>
+
+                <div class="d-flex align-items-center gap-4 text-muted small pt-2">
+                    <div class="d-flex align-items-center gap-2">
+                        <i class="bi bi-check-circle text-success fs-5"></i>
+                        <span class="text-light">300 GSM Archival Paper</span>
+                    </div>
+                    <div class="d-flex align-items-center gap-2">
+                        <i class="bi bi-check-circle text-success fs-5"></i>
+                        <span class="text-light">Ready-to-Hang Frames</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column: 3D Angled Poster Artwork Visual -->
+            <div class="col-lg-6">
+                <div class="hero-poster-card">
+                    {% if hero_poster and hero_poster.main_image %}
+                        <a href="{{ hero_poster.get_absolute_url }}">
+                            <img src="{{ hero_poster.main_image.url }}" alt="{{ hero_poster.title }}" class="hero-poster-img shadow-lg">
+                        </a>
+                    {% elif featured_posters.first and featured_posters.first.main_image %}
+                        <a href="{{ featured_posters.first.get_absolute_url }}">
+                            <img src="{{ featured_posters.first.main_image.url }}" alt="Featured Poster" class="hero-poster-img shadow-lg">
+                        </a>
+                    {% else %}
+                        <img src="{% static 'images/placeholder-poster.svg' %}" alt="Featured Poster" class="hero-poster-img shadow-lg">
+                    {% endif %}
+
+                    <!-- Floating Badge -->
+                    <div class="hero-floating-badge">
+                        <div class="bg-danger bg-opacity-10 text-danger p-2 rounded-circle">
+                            <i class="bi bi-fire fs-4"></i>
+                        </div>
+                        <div>
+                            <div class="fw-bold small text-dark">Trending This Week</div>
+                            <div class="text-muted small">Over 500+ homes transformed</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 2. Categories Grid -->
+<section class="py-5 bg-white border-bottom">
+    <div class="container">
+        <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-end mb-4">
+            <div>
+                <span class="text-uppercase text-danger fw-bold small tracking-wide">Curated Collections</span>
+                <h2 class="fw-bold mb-0">Browse By Category</h2>
+            </div>
+            <a href="{% url 'store:shop' %}" class="btn btn-link text-dark fw-bold text-decoration-none p-0 mt-2 mt-md-0">
+                View All Categories →
+            </a>
+        </div>
+
+        <div class="row g-3 g-lg-4">
+            {% for cat in categories %}
+            <div class="col-6 col-md-4 col-lg-2-4">
+                <a href="{% url 'store:category_detail' slug=cat.slug %}" class="category-card" title="Explore {{ cat.name }} Posters">
+                    {% if cat.cover_image %}
+                        <img src="{{ cat.cover_image }}" alt="{{ cat.name }} posters" class="category-card-img" loading="lazy">
+                    {% else %}
+                        <div class="category-empty-fallback">
+                            <i class="bi {{ cat.icon }} fs-2 mb-2 text-white-50"></i>
+                            <span class="badge bg-dark bg-opacity-75 text-white-50 small">Coming Soon</span>
+                        </div>
+                    {% endif %}
+                    <div class="category-overlay">
+                        <div class="category-header-row">
+                            <div class="category-name"><i class="bi {{ cat.icon }} me-1 fs-6"></i> {{ cat.name }}</div>
+                            <i class="bi bi-arrow-right category-arrow"></i>
+                        </div>
+                        <div class="category-count">{{ cat.poster_count }} Design{{ cat.poster_count|pluralize }}</div>
+                    </div>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- 3. Trending Now Section -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="d-flex justify-content-between align-items-end mb-4">
+            <div>
+                <span class="text-uppercase text-danger fw-bold small">Community Favorites</span>
+                <h2 class="fw-bold mb-0">Trending Posters</h2>
+            </div>
+            <a href="{% url 'store:shop' %}?sort=popular" class="btn btn-pk-outline btn-sm">
+                See More Trending <i class="bi bi-arrow-right ms-1"></i>
+            </a>
+        </div>
+
+        <div class="row g-4">
+            {% for poster in trending_posters %}
+            <div class="col-6 col-md-4 col-lg-3">
+                {% include 'includes/product_card.html' with poster=poster %}
+            </div>
+            {% empty %}
+            <div class="col-12 text-center py-4 text-muted">No trending posters yet.</div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- 4. Special Promotional Offer Banner -->
+<section class="py-5 bg-dark text-white position-relative overflow-hidden">
+    <div class="container position-relative" style="z-index: 2;">
+        <div class="row align-items-center g-4">
+            <div class="col-lg-8">
+                <span class="badge bg-danger mb-2 px-3 py-2 text-uppercase fw-bold">Limited Time Promo</span>
+                <h2 class="display-6 fw-bold text-white mb-2">Upgrade Your Walls • Extra 10% Off</h2>
+                <p class="text-muted mb-0">Use coupon code <span class="badge bg-white text-dark font-monospace fs-6 px-3 py-1">POSTER10</span> at checkout on any order.</p>
+            </div>
+            <div class="col-lg-4 text-lg-end">
+                <a href="{% url 'store:shop' %}" class="btn btn-pk-primary btn-lg px-4">
+                    Claim Discount Now <i class="bi bi-arrow-right ms-1"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 5. Featured Artworks Section -->
+<section class="py-5 bg-white">
+    <div class="container">
+        <div class="d-flex justify-content-between align-items-end mb-4">
+            <div>
+                <span class="text-uppercase text-danger fw-bold small">Handpicked By Curators</span>
+                <h2 class="fw-bold mb-0">Featured Posters</h2>
+            </div>
+            <a href="{% url 'store:shop' %}?sort=newest" class="btn btn-pk-outline btn-sm">
+                Explore All <i class="bi bi-arrow-right ms-1"></i>
+            </a>
+        </div>
+
+        <div class="row g-4">
+            {% for poster in featured_posters %}
+            <div class="col-6 col-md-4 col-lg-3">
+                {% include 'includes/product_card.html' with poster=poster %}
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- 6. New Arrivals Section -->
+<section class="py-5 bg-light border-top">
+    <div class="container">
+        <div class="d-flex justify-content-between align-items-end mb-4">
+            <div>
+                <span class="text-uppercase text-danger fw-bold small">Fresh Off The Press</span>
+                <h2 class="fw-bold mb-0">New Arrivals</h2>
+            </div>
+            <a href="{% url 'store:shop' %}?sort=newest" class="btn btn-pk-outline btn-sm">
+                Explore New Arrivals <i class="bi bi-arrow-right ms-1"></i>
+            </a>
+        </div>
+
+        <div class="row g-4">
+            {% for poster in new_arrivals %}
+            <div class="col-6 col-md-4 col-lg-3">
+                {% include 'includes/product_card.html' with poster=poster %}
+            </div>
+            {% empty %}
+            <div class="col-12 text-center py-4 text-muted">No new arrivals yet.</div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- 6. Custom Poster Feature Spotlight -->
+<section class="py-5 bg-light border-top border-bottom">
+    <div class="container">
+        <div class="row align-items-center g-5">
+            <div class="col-lg-6">
+                <div class="p-4 p-lg-5 bg-white rounded-4 shadow-sm border">
+                    <span class="badge bg-danger bg-opacity-10 text-danger fw-bold mb-3 px-3 py-2">Bespoke Printing</span>
+                    <h2 class="fw-bold mb-3">Create Something Truly Personal.</h2>
+                    <p class="text-muted mb-4" style="line-height: 1.8;">
+                        Turn your photography, wedding moments, travel memories, digital artwork, or custom typography into a museum-quality framed wall poster in just a few clicks.
+                    </p>
+                    <ul class="list-unstyled mb-4">
+                        <li class="d-flex align-items-center gap-2 mb-2 text-dark">
+                            <i class="bi bi-check-circle-fill text-success"></i> Instant upload with live interactive room preview
+                        </li>
+                        <li class="d-flex align-items-center gap-2 mb-2 text-dark">
+                            <i class="bi bi-check-circle-fill text-success"></i> High-definition 12-color giclée art printing
+                        </li>
+                        <li class="d-flex align-items-center gap-2 text-dark">
+                            <i class="bi bi-check-circle-fill text-success"></i> Optional handcrafted solid wood framing
+                        </li>
+                    </ul>
+                    <a href="{% url 'customposters:create' %}" class="btn btn-pk-dark btn-lg px-4">
+                        Open Custom Poster Studio <i class="bi bi-stars ms-1 text-warning"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-6 text-center">
+                <div class="position-relative d-inline-block">
+                    <div class="mockup-poster-frame frame-wooden shadow-lg" style="max-width: 380px;">
+                        <img src="{% static 'images/placeholder-poster.svg' %}" alt="Custom Poster Preview" class="mockup-poster-img">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 7. Why Choose PosterKart -->
+<section class="py-5 bg-white">
+    <div class="container py-4">
+        <div class="text-center max-w-600 mx-auto mb-5">
+            <span class="text-uppercase text-danger fw-bold small">Uncompromising Standards</span>
+            <h2 class="fw-bold">Why Wall Art Lovers Choose PosterKart</h2>
+        </div>
+
+        <div class="row g-4">
+            <div class="col-md-3">
+                <div class="p-4 rounded-3 border bg-light h-100 text-center">
+                    <div class="fs-1 text-danger mb-3"><i class="bi bi-brush"></i></div>
+                    <h5 class="fw-bold mb-2">High-Res Pigment Print</h5>
+                    <p class="text-muted small mb-0">Printed using archival fade-resistant pigment inks guaranteed to remain vibrant for 50+ years.</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="p-4 rounded-3 border bg-light h-100 text-center">
+                    <div class="fs-1 text-danger mb-3"><i class="bi bi-layers"></i></div>
+                    <h5 class="fw-bold mb-2">300 GSM Heavyweight Paper</h5>
+                    <p class="text-muted small mb-0">Thick, luxurious velvet matte art paper with non-reflective premium texture.</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="p-4 rounded-3 border bg-light h-100 text-center">
+                    <div class="fs-1 text-danger mb-3"><i class="bi bi-box-seam"></i></div>
+                    <h5 class="fw-bold mb-2">Armored Packaging</h5>
+                    <p class="text-muted small mb-0">Delivered in heavy-duty triangular cardboard tubes or shatterproof wooden frame crates.</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="p-4 rounded-3 border bg-light h-100 text-center">
+                    <div class="fs-1 text-danger mb-3"><i class="bi bi-lightning-charge"></i></div>
+                    <h5 class="fw-bold mb-2">Fast & Free Shipping</h5>
+                    <p class="text-muted small mb-0">Dispatched within 24 hours with complimentary shipping across India on orders ₹499+.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 8. Customer Reviews Testimonials -->
+<section class="py-5 bg-light border-top">
+    <div class="container py-3">
+        <div class="text-center mb-5">
+            <span class="text-uppercase text-danger fw-bold small">Verified Buyers</span>
+            <h2 class="fw-bold">Loved By 20,000+ Wall Decorators</h2>
+        </div>
+
+        <div class="row g-4">
+            {% for review in recent_reviews %}
+            <div class="col-md-4">
+                <div class="p-4 bg-white rounded-3 border shadow-xs h-100 d-flex flex-column justify-content-between">
+                    <div>
+                        <div class="text-warning mb-2">
+                            {% for i in "12345"|make_list %}
+                                {% if forloop.counter <= review.rating %}★{% else %}☆{% endif %}
+                            {% endfor %}
+                        </div>
+                        <p class="text-muted small mb-3 italic">"{{ review.review_text }}"</p>
+                    </div>
+                    <div class="d-flex align-items-center justify-content-between pt-3 border-top">
+                        <div class="fw-bold small">{{ review.user.first_name|default:review.user.username }}</div>
+                        <div class="text-muted small text-truncate" style="max-width: 140px;">on <i>{{ review.poster.title }}</i></div>
+                    </div>
+                </div>
+            </div>
+            {% empty %}
+            <div class="col-12 text-center text-muted">Join our community and be the first to review!</div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<style>
+@media (min-width: 992px) {
+    .col-lg-2-4 {
+        width: 20% !important;
+    }
+}
+</style>
+{% endblock %}

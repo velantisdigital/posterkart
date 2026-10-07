@@ -1,0 +1,103 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Create an Account • PosterKart{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row justify-content-center align-items-center g-5">
+        <!-- Left: Perks Column -->
+        <div class="col-lg-5 d-none d-lg-block">
+            <div class="p-4 pe-5">
+                <span class="badge bg-danger bg-opacity-10 text-danger fw-bold mb-3 px-3 py-2">Join PosterKart</span>
+                <h2 class="display-6 fw-bold mb-3">Elevate Your Living Space with Art.</h2>
+                <p class="text-muted mb-4" style="line-height: 1.7;">Create your account today and explore thousands of exclusive wall prints, custom bespoke framing, and express delivery.</p>
+
+                <div class="d-flex flex-column gap-3">
+                    <div class="d-flex align-items-center gap-3">
+                        <div class="bg-light p-2 rounded-circle text-danger fs-5"><i class="bi bi-gift"></i></div>
+                        <div>
+                            <div class="fw-bold">Welcome Discount</div>
+                            <div class="text-muted small">Get extra ₹50 off using coupon WELCOME50</div>
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-center gap-3">
+                        <div class="bg-light p-2 rounded-circle text-danger fs-5"><i class="bi bi-heart"></i></div>
+                        <div>
+                            <div class="fw-bold">Curate Wishlists</div>
+                            <div class="text-muted small">Save favorite posters across devices</div>
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-center gap-3">
+                        <div class="bg-light p-2 rounded-circle text-danger fs-5"><i class="bi bi-truck"></i></div>
+                        <div>
+                            <div class="fw-bold">Live Order Tracking</div>
+                            <div class="text-muted small">Real-time status from studio printing to delivery</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right: Registration Form Card -->
+        <div class="col-lg-6 col-md-8">
+            <div class="p-4 p-md-5 bg-white rounded-4 border shadow-sm">
+                <div class="text-center mb-4">
+                    <h2 class="fw-bold mb-1">Create Account</h2>
+                    <p class="text-muted small">Already have an account? <a href="{% url 'accounts:login' %}" class="text-danger fw-bold">Sign In</a></p>
+                </div>
+
+                <form method="POST" novalidate>
+                    {% csrf_token %}
+                    
+                    <div class="row g-3 mb-3">
+                        <div class="col-12">
+                            <label class="form-label small fw-bold text-muted">Full Name *</label>
+                            {{ form.full_name }}
+                            {% if form.full_name.errors %}<div class="text-danger small mt-1">{{ form.full_name.errors.0 }}</div>{% endif %}
+                        </div>
+
+                        <div class="col-md-6">
+                            <label class="form-label small fw-bold text-muted">Username *</label>
+                            {{ form.username }}
+                            {% if form.username.errors %}<div class="text-danger small mt-1">{{ form.username.errors.0 }}</div>{% endif %}
+                        </div>
+
+                        <div class="col-md-6">
+                            <label class="form-label small fw-bold text-muted">Phone Number *</label>
+                            {{ form.phone_number }}
+                            {% if form.phone_number.errors %}<div class="text-danger small mt-1">{{ form.phone_number.errors.0 }}</div>{% endif %}
+                        </div>
+
+                        <div class="col-12">
+                            <label class="form-label small fw-bold text-muted">Email Address *</label>
+                            {{ form.email }}
+                            {% if form.email.errors %}<div class="text-danger small mt-1">{{ form.email.errors.0 }}</div>{% endif %}
+                        </div>
+
+                        <div class="col-md-6">
+                            <label class="form-label small fw-bold text-muted">Password *</label>
+                            {{ form.password }}
+                            {% if form.password.errors %}<div class="text-danger small mt-1">{{ form.password.errors.0 }}</div>{% endif %}
+                        </div>
+
+                        <div class="col-md-6">
+                            <label class="form-label small fw-bold text-muted">Confirm Password *</label>
+                            {{ form.confirm_password }}
+                            {% if form.confirm_password.errors %}<div class="text-danger small mt-1">{{ form.confirm_password.errors.0 }}</div>{% endif %}
+                        </div>
+                    </div>
+
+                    {% if form.non_field_errors %}
+                        <div class="alert alert-danger small py-2 mb-3">{{ form.non_field_errors.0 }}</div>
+                    {% endif %}
+
+                    <button type="submit" class="btn btn-pk-primary btn-lg w-100 py-3 fw-bold">
+                        Create My Account <i class="bi bi-arrow-right ms-1"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

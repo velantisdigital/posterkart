@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Page Not Found • PosterKart{% endblock %}
+
+{% block content %}
+<div class="container py-5 text-center my-5">
+    <div class="py-5">
+        <div class="display-1 fw-bold text-danger mb-2 font-monospace">404</div>
+        <h2 class="fw-bold mb-3">Frame Empty • Page Not Found</h2>
+        <p class="text-muted small mb-4 max-w-400 mx-auto">The poster or page you are looking for might have been moved, renamed, or is temporarily unavailable.</p>
+        <div class="d-flex justify-content-center gap-3">
+            <a href="{% url 'store:home' %}" class="btn btn-pk-primary px-4 py-2">Back to Homepage</a>
+            <a href="{% url 'store:shop' %}" class="btn btn-pk-outline px-4 py-2">Browse Posters</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

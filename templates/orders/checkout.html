@@ -1,0 +1,202 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Checkout • PosterKart{% endblock %}
+
+{% block content %}
+<div class="bg-white border-bottom py-3 mb-4">
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb mb-0 small">
+                <li class="breadcrumb-item"><a href="{% url 'store:home' %}" class="text-muted">Home</a></li>
+                <li class="breadcrumb-item"><a href="{% url 'cart:cart' %}" class="text-muted">Cart</a></li>
+                <li class="breadcrumb-item active text-dark fw-semibold" aria-current="page">Checkout</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+
+<div class="container pb-5">
+    <h1 class="h3 fw-bold mb-4">Secure Checkout</h1>
+
+    <form action="{% url 'orders:checkout' %}" method="POST" id="checkoutForm">
+        {% csrf_token %}
+        <div class="row g-5">
+            <!-- Left: Address & Payment Selection -->
+            <div class="col-lg-7">
+                <!-- 1. Delivery Address -->
+                <div class="p-4 bg-white rounded-3 border mb-4">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h5 class="fw-bold mb-0">
+                            <span class="badge bg-danger rounded-circle me-2 px-2 py-1" style="font-size: 0.8rem;">1</span>
+                            Delivery Address
+                        </h5>
+                        <button type="button" class="btn btn-pk-outline btn-sm" data-bs-toggle="collapse" data-bs-target="#newAddressCollapse">
+                            + Add New Address
+                        </button>
+                    </div>
+
+                    <!-- Saved Addresses Radio Grid -->
+                    {% if addresses %}
+                    <div class="d-flex flex-column gap-3 mb-3">
+                        {% for addr in addresses %}
+                        <div class="form-check p-3 border rounded-3 address-select-card position-relative {% if addr.is_default or forloop.first %}border-danger bg-light bg-opacity-25{% endif %}">
+                            <input class="form-check-input ms-0 me-3" type="radio" name="address_id" value="{{ addr.id }}" id="addr_{{ addr.id }}" {% if addr.is_default or forloop.first %}checked{% endif %}>
+                            <label class="form-check-label w-100 ps-4 cursor-pointer" for="addr_{{ addr.id }}">
+                                <div class="d-flex justify-content-between">
+                                    <span class="fw-bold text-dark">{{ addr.full_name }}</span>
+                                    {% if addr.is_default %}<span class="badge bg-danger bg-opacity-10 text-danger small">DEFAULT</span>{% endif %}
+                                </div>
+                                <div class="text-muted small mt-1">{{ addr.formatted_address }}</div>
+                            </label>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+
+                    <!-- Collapsible New Address Form -->
+                    <div class="collapse {% if not addresses %}show{% endif %} mt-3 pt-3 border-top" id="newAddressCollapse">
+                        <div class="form-check mb-3">
+                            <input class="form-check-input" type="radio" name="address_id" value="new" id="addr_new" {% if not addresses %}checked{% endif %}>
+                            <label class="form-check-label fw-bold text-dark" for="addr_new">
+                                {% if addresses %}Deliver to a new address below:{% else %}Enter your delivery address:{% endif %}
+                            </label>
+                        </div>
+
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label class="form-label small fw-bold text-muted">Full Name *</label>
+                                {{ address_form.full_name }}
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label small fw-bold text-muted">Mobile Number *</label>
+                                {{ address_form.phone_number }}
+                            </div>
+                            <div class="col-12">
+                                <label class="form-label small fw-bold text-muted">Flat, House no., Building, Street *</label>
+                                {{ address_form.address_line_1 }}
+                            </div>
+                            <div class="col-12">
+                                <label class="form-label small fw-bold text-muted">Area, Colony, Sector</label>
+                                {{ address_form.address_line_2 }}
+                            </div>
+                            <div class="col-md-4">
+                                <label class="form-label small fw-bold text-muted">City *</label>
+                                {{ address_form.city }}
+                            </div>
+                            <div class="col-md-4">
+                                <label class="form-label small fw-bold text-muted">State *</label>
+                                {{ address_form.state }}
+                            </div>
+                            <div class="col-md-4">
+                                <label class="form-label small fw-bold text-muted">PIN Code *</label>
+                                {{ address_form.pin_code }}
+                            </div>
+                            <div class="col-12">
+                                <label class="form-label small fw-bold text-muted">Nearby Landmark</label>
+                                {{ address_form.landmark }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. Payment Method -->
+                <div class="p-4 bg-white rounded-3 border mb-4">
+                    <h5 class="fw-bold mb-3">
+                        <span class="badge bg-danger rounded-circle me-2 px-2 py-1" style="font-size: 0.8rem;">2</span>
+                        Select Payment Method
+                    </h5>
+
+                    <div class="d-flex flex-column gap-3">
+                        <!-- Demo Online Payment -->
+                        <div class="form-check p-3 border rounded-3">
+                            <input class="form-check-input ms-0 me-3" type="radio" name="payment_method" value="DEMO_ONLINE" id="pay_online" checked>
+                            <label class="form-check-label w-100 ps-4 cursor-pointer" for="pay_online">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <span class="fw-bold text-dark">Demo Online Payment <span class="badge bg-success bg-opacity-10 text-success small ms-2">Recommended</span></span>
+                                    <div class="d-flex gap-2 fs-5 text-muted">
+                                        <i class="bi bi-qr-code"></i>
+                                        <i class="bi bi-credit-card"></i>
+                                        <i class="bi bi-bank"></i>
+                                    </div>
+                                </div>
+                                <div class="text-muted small mt-1">Instant simulated checkout with UPI (GPay, PhonePe, Paytm), Cards & NetBanking.</div>
+                            </label>
+                        </div>
+
+                        <!-- Cash on Delivery -->
+                        <div class="form-check p-3 border rounded-3">
+                            <input class="form-check-input ms-0 me-3" type="radio" name="payment_method" value="COD" id="pay_cod">
+                            <label class="form-check-label w-100 ps-4 cursor-pointer" for="pay_cod">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <span class="fw-bold text-dark">Cash on Delivery (COD)</span>
+                                    <i class="bi bi-cash-stack fs-5 text-muted"></i>
+                                </div>
+                                <div class="text-muted small mt-1">Pay with cash when your framed posters arrive at your doorstep.</div>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="d-none d-lg-block">
+                    <button type="submit" class="btn btn-pk-primary btn-lg w-100 py-3 fw-bold">
+                        Confirm & Place Order (₹{{ total_amount|floatformat:0 }}) <i class="bi bi-arrow-right ms-1"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Right: Sticky Order Summary & Items List -->
+            <div class="col-lg-5">
+                <div class="p-4 bg-white rounded-3 border sticky-top" style="top: 90px;">
+                    <h5 class="fw-bold mb-3">Order Items ({{ cart.total_items }})</h5>
+                    
+                    <div class="d-flex flex-column gap-3 mb-4" style="max-height: 280px; overflow-y: auto;">
+                        {% for item in cart_items %}
+                        <div class="d-flex gap-3 align-items-center pb-2 border-bottom">
+                            <img src="{{ item.image_url }}" width="50" height="70" class="rounded object-fit-cover shadow-xs border" alt="{{ item.title }}">
+                            <div class="flex-grow-1">
+                                <div class="fw-bold text-truncate small" style="max-width: 200px;">{{ item.title }}</div>
+                                <div class="text-muted small" style="font-size: 0.75rem;">{{ item.size.name }} • {{ item.frame.name }}</div>
+                                <div class="text-muted small">Qty: <b class="text-dark">{{ item.quantity }}</b></div>
+                            </div>
+                            <div class="fw-bold text-dark small">₹{{ item.total_price|floatformat:0 }}</div>
+                        </div>
+                        {% endfor %}
+                    </div>
+
+                    <!-- Price Calculations -->
+                    <div class="d-flex justify-content-between mb-2 small">
+                        <span class="text-muted">Subtotal</span>
+                        <span class="fw-semibold">₹{{ subtotal|floatformat:0 }}</span>
+                    </div>
+                    <div class="d-flex justify-content-between mb-2 small">
+                        <span class="text-muted">Delivery Fee</span>
+                        <span class="fw-semibold text-success">{% if delivery_charge == 0 %}FREE{% else %}₹{{ delivery_charge|floatformat:0 }}{% endif %}</span>
+                    </div>
+                    {% if discount_amount > 0 %}
+                    <div class="d-flex justify-content-between mb-2 small text-success">
+                        <span>Coupon Discount ({{ cart.coupon.code }})</span>
+                        <span class="fw-semibold">- ₹{{ discount_amount|floatformat:0 }}</span>
+                    </div>
+                    {% endif %}
+                    <hr>
+                    <div class="d-flex justify-content-between align-items-baseline mb-4">
+                        <span class="fw-bold text-dark fs-5">Final Total</span>
+                        <span class="display-6 fw-bold text-danger">₹{{ total_amount|floatformat:0 }}</span>
+                    </div>
+
+                    <div class="d-lg-none">
+                        <button type="submit" class="btn btn-pk-primary btn-lg w-100 py-3 fw-bold mb-3">
+                            Confirm & Place Order (₹{{ total_amount|floatformat:0 }})
+                        </button>
+                    </div>
+
+                    <div class="p-3 bg-light rounded-3 small text-muted text-center">
+                        <i class="bi bi-lock-fill text-success me-1"></i> Safe & Encrypted 256-Bit SSL Checkout
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,129 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Track Order #{{ order.order_number }} • PosterKart{% endblock %}
+
+{% block content %}
+<div class="bg-white border-bottom py-3 mb-4">
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb mb-0 small">
+                <li class="breadcrumb-item"><a href="{% url 'store:home' %}" class="text-muted">Home</a></li>
+                <li class="breadcrumb-item"><a href="{% url 'orders:my_orders' %}" class="text-muted">My Orders</a></li>
+                <li class="breadcrumb-item active text-dark fw-semibold" aria-current="page">Track #{{ order.order_number }}</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+
+<div class="container pb-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-9">
+            <!-- Tracking Card -->
+            <div class="p-4 p-md-5 bg-white rounded-4 border shadow-sm mb-4">
+                <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center pb-4 mb-4 border-bottom gap-2">
+                    <div>
+                        <span class="badge bg-danger bg-opacity-10 text-danger fw-bold mb-1">LIVE SHIPMENT TRACKING</span>
+                        <h2 class="h4 fw-bold mb-0">Order #{{ order.order_number }}</h2>
+                        <div class="text-muted small">Placed on {{ order.created_at|date:"d M Y, h:i A" }}</div>
+                    </div>
+                    <div class="text-md-end">
+                        <div class="text-muted small">Estimated Delivery By:</div>
+                        <div class="fs-5 fw-bold text-dark">{{ estimated_delivery|date:"l, d M Y" }}</div>
+                    </div>
+                </div>
+
+                <!-- Timeline Stepper -->
+                {% if order.order_status == 'CANCELLED' %}
+                <div class="alert alert-danger p-4 text-center rounded-3">
+                    <i class="bi bi-x-circle-fill display-4 d-block mb-2"></i>
+                    <h5 class="fw-bold">Order Cancelled</h5>
+                    <p class="mb-0 text-muted">This order was cancelled on {{ order.updated_at|date:"d M Y" }}. If payment was deducted, refund will reflect in 3-5 business days.</p>
+                </div>
+                {% else %}
+                <div class="timeline-stepper my-5">
+                    <div class="timeline-step {% if order.status_step >= 1 %}completed{% endif %} {% if order.status_step == 1 %}active{% endif %}">
+                        <div class="timeline-step-icon"><i class="bi bi-bag-check"></i></div>
+                        <div class="timeline-step-title">Order Placed</div>
+                        <div class="text-muted small d-none d-md-block" style="font-size: 0.72rem;">Order received</div>
+                    </div>
+                    <div class="timeline-step {% if order.status_step >= 2 %}completed{% endif %} {% if order.status_step == 2 %}active{% endif %}">
+                        <div class="timeline-step-icon"><i class="bi bi-check2-circle"></i></div>
+                        <div class="timeline-step-title">Confirmed</div>
+                        <div class="text-muted small d-none d-md-block" style="font-size: 0.72rem;">Sent to studio</div>
+                    </div>
+                    <div class="timeline-step {% if order.status_step >= 3 %}completed{% endif %} {% if order.status_step == 3 %}active{% endif %}">
+                        <div class="timeline-step-icon"><i class="bi bi-printer"></i></div>
+                        <div class="timeline-step-title">Printing & Framing</div>
+                        <div class="text-muted small d-none d-md-block" style="font-size: 0.72rem;">300 GSM giclée</div>
+                    </div>
+                    <div class="timeline-step {% if order.status_step >= 4 %}completed{% endif %} {% if order.status_step == 4 %}active{% endif %}">
+                        <div class="timeline-step-icon"><i class="bi bi-box-seam"></i></div>
+                        <div class="timeline-step-title">Shipped</div>
+                        <div class="text-muted small d-none d-md-block" style="font-size: 0.72rem;">In armored tube</div>
+                    </div>
+                    <div class="timeline-step {% if order.status_step >= 5 %}completed{% endif %} {% if order.status_step == 5 %}active{% endif %}">
+                        <div class="timeline-step-icon"><i class="bi bi-truck"></i></div>
+                        <div class="timeline-step-title">Out for Delivery</div>
+                        <div class="text-muted small d-none d-md-block" style="font-size: 0.72rem;">With local courier</div>
+                    </div>
+                    <div class="timeline-step {% if order.status_step >= 6 %}completed{% endif %} {% if order.status_step == 6 %}active{% endif %}">
+                        <div class="timeline-step-icon"><i class="bi bi-house-door"></i></div>
+                        <div class="timeline-step-title">Delivered</div>
+                        <div class="text-muted small d-none d-md-block" style="font-size: 0.72rem;">Delivered to you</div>
+                    </div>
+                </div>
+                {% endif %}
+
+                <!-- Live Status Narrative -->
+                <div class="p-4 bg-light rounded-3 border mb-4">
+                    <div class="d-flex align-items-center gap-3">
+                        <div class="bg-danger text-white p-3 rounded-circle fs-4">
+                            <i class="bi bi-info-circle"></i>
+                        </div>
+                        <div>
+                            <h6 class="fw-bold mb-1">Current Status: {{ order.get_order_status_display }}</h6>
+                            <p class="text-muted small mb-0">
+                                {% if order.order_status == 'PLACED' %}
+                                    Your order has been logged into our queuing system and is awaiting studio verification.
+                                {% elif order.order_status == 'CONFIRMED' %}
+                                    Order verified and materials (300 GSM velvet archival paper & frames) allocated.
+                                {% elif order.order_status == 'PRINTING' %}
+                                    High-definition 12-color archival giclée printing and handcrafted framing in progress.
+                                {% elif order.order_status == 'SHIPPED' %}
+                                    Packed securely inside our crushproof protective casing and handed over to express logistics.
+                                {% elif order.order_status == 'OUT_FOR_DELIVERY' %}
+                                    Courier partner is currently out in your area to deliver your package today.
+                                {% elif order.order_status == 'DELIVERED' %}
+                                    Your wall art package was successfully delivered. We hope you enjoy transforming your space!
+                                {% elif order.order_status == 'CANCELLED' %}
+                                    This order was cancelled.
+                                {% endif %}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Delivery Destination & Action buttons -->
+                <div class="row g-4 pt-3 border-top">
+                    <div class="col-md-6">
+                        <h6 class="fw-bold small text-muted text-uppercase mb-1">Shipping Destination</h6>
+                        <div class="fw-bold text-dark">{{ order.shipping_full_name }}</div>
+                        <div class="text-muted small">{{ order.formatted_shipping_address }}</div>
+                    </div>
+                    <div class="col-md-6 text-md-end d-flex flex-column justify-content-center">
+                        <div class="d-flex justify-content-md-end gap-2">
+                            <a href="{% url 'orders:order_detail' order_number=order.order_number %}" class="btn btn-pk-outline btn-sm">
+                                View Order Details
+                            </a>
+                            <a href="{% url 'store:contact' %}" class="btn btn-pk-dark btn-sm">
+                                Need Help?
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
