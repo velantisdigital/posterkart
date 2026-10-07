@@ -168,7 +168,7 @@ class Poster(models.Model):
         if not self.main_image:
             return False
         try:
-            return bool(self.main_image.path and os.path.exists(self.main_image.path))
+            return bool(self.main_image.name and self.main_image.url)
         except Exception:
             return False
 

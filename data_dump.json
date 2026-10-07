@@ -1,0 +1,2461 @@
+[
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$iubdOiQwqph8zEDUiDL25c$HaLkoqLH8jjP3oWUl3TzxQyb3N1zTXMcVdvdHW0CHQ8=",
+    "last_login": "2026-09-26T14:06:53.628Z",
+    "is_superuser": true,
+    "username": "admin",
+    "first_name": "PosterKart",
+    "last_name": "Admin",
+    "email": "admin@posterkart.com",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2026-08-31T14:37:38.086Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$uHn5HxT7k4hEtyks2AdfeE$b5QWyUam9FO0j2ac49DrmLl/fS/RR0kc4F2z4z1YenQ=",
+    "last_login": "2026-09-22T15:46:11.722Z",
+    "is_superuser": false,
+    "username": "rahul",
+    "first_name": "Rahul",
+    "last_name": "Sharma",
+    "email": "rahul@example.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-08-31T14:38:32.954Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "0ti8323k1wcm7dyxp2expxx2vvsr85uc",
+  "fields": {
+    "session_data": "e30:1x92gI:BGhmlJAtShlPSe9EgKNBg-sWSuhzIYoXy-knEeJbstU",
+    "expire_date": "2026-10-06T15:45:18.472Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "0tzduuhvbjfr8be3wraa2iwga67k67jc",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2pDSWhhcuu8ZyDAzSNVAUtqV8e7apAvd_vfef6mA25rD1mQJM6uLMur0u0Wkh5Qd8B3LrWqqZV3mqHdFH7TpqbI8r4f7d5Cx5W8NZiAy3pGnvk-JLZEAjgwE2BkGsUw2cnJn9N4mICdDNDDajlNk59T7Aw0XORM:1x92TH:g49-0YFw2it4fBhTRh5QyfLi9tfv1i086cj5Z_P-Mp4",
+    "expire_date": "2026-10-06T15:31:51.515Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "29tlg5yok35mqpuxi0vowtphfv3ong3y",
+  "fields": {
+    "session_data": "e30:1x92Qp:KVNcVYAEIuqUXrOSSEm2d6TcSaE3D342WlXtb2418R4",
+    "expire_date": "2026-10-06T15:29:19.334Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "5w33f2bb9v42dpsq8xwrp3pwcc2ay4w9",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2pDSWhhcuu8ZyDAzSNVAUtqV8e7apAvd_vfef6mA25rD1mQJM6uLMur0u0Wkh5Qd8B3LrWqqZV3mqHdFH7TpqbI8r4f7d5Cx5W8NZiAy3pGnvk-JLZEAjgwE2BkGsUw2cnJn9N4mICdDNDDajlNk59T7Aw0XORM:1x92Di:Dv9nMzSP4Nl5UX5Lbrp9lfOJI3DK-VP_NNqYlJvlhe4",
+    "expire_date": "2026-10-06T15:15:46.567Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "62x5wy6tayum2wzlb880abso2l1ujj31",
+  "fields": {
+    "session_data": "e30:1x92Si:06zOtAb5hWR81Xyl4eGBqX6BwOGBlYmD4JJ5URSrdDE",
+    "expire_date": "2026-10-06T15:31:16.534Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "af81mgdh8a4fv5hlob8z8okr32l3fhpz",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2pDSWhhcuu8ZyDAzSNVAUtqV8e7apAvd_vfef6mA25rD1mQJM6uLMur0u0Wkh5Qd8B3LrWqqZV3mqHdFH7TpqbI8r4f7d5Cx5W8NZiAy3pGnvk-JLZEAjgwE2BkGsUw2cnJn9N4mICdDNDDajlNk59T7Aw0XORM:1x92hB:meHJIXFl35PemEwFpqAgcwMGtMNkIulw53QnxHF1M9c",
+    "expire_date": "2026-10-06T15:46:13.057Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "ahciifmdqel4bh33u711pyoz6pjkzkdq",
+  "fields": {
+    "session_data": "e30:1x92gY:HVOmSD34mL_HOiqP7rmijBuCVE2agYw5zxa2_Sp226k",
+    "expire_date": "2026-10-06T15:45:34.496Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "b0vb3fzkehw6j1fweyn8fwmj2cfq0ex5",
+  "fields": {
+    "session_data": "e30:1x92T1:jzYKA0TNJwQjckJbmGHY64-SOcYXlxG-OC1FE00ksCg",
+    "expire_date": "2026-10-06T15:31:35.379Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "ctcpamv69gxll3m1te4850n3zmrc0v7v",
+  "fields": {
+    "session_data": "e30:1x92gr:XQHYMZgLnawS66p17d-msQTHJg_ANeKqQdtO7-q9I-Y",
+    "expire_date": "2026-10-06T15:45:53.140Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "fkl8xwsvintdmqzp1nogzx89djaac7m5",
+  "fields": {
+    "session_data": "e30:1xC95c:2gGe4Ezo2IBQgISBCcDbZrNU9ZSoDdDkdRln_S_v9cU",
+    "expire_date": "2026-10-15T05:12:16.906Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "kuyupye5gdvkomvj8blvl8hzdbrzgjj1",
+  "fields": {
+    "session_data": "e30:1xAT1x:izIBTtwZqIwZpBha-kJMbEXZFQfPLrZosZqIfUUVtH8",
+    "expire_date": "2026-10-10T14:05:33.395Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "ltgdpzpg7zkysg0pvu40dwq2inkv0ibo",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2pDSWhhcuu8ZyDAzSNVAUtqV8e7apAvd_vfef6mA25rD1mQJM6uLMur0u0Wkh5Qd8B3LrWqqZV3mqHdFH7TpqbI8r4f7d5Cx5W8NZiAy3pGnvk-JLZEAjgwE2BkGsUw2cnJn9N4mICdDNDDajlNk59T7Aw0XORM:1xAT3F:dA7LKui9nifVeAo52WCWX93LeAnTsdwSBgc91o5tS6U",
+    "expire_date": "2026-10-10T14:06:53.654Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "tyv61wj2cvibeiunyutnkt596t7wy8jf",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2pDSWhhcuu8ZyDAzSNVAUtqV8e7apAvd_vfef6mA25rD1mQJM6uLMur0u0Wkh5Qd8B3LrWqqZV3mqHdFH7TpqbI8r4f7d5Cx5W8NZiAy3pGnvk-JLZEAjgwE2BkGsUw2cnJn9N4mICdDNDDajlNk59T7Aw0XORM:1x13Jl:31BgqoEA0cu0L2tjxk8LVcEiUgkpHEOoKIKow2_Kj5c",
+    "expire_date": "2026-09-14T14:49:01.925Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "vkf5ozyry8to8g2h0b0820piz3lhk16f",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2pDSWhhcuu8ZyDAzSNVAUtqV8e7apAvd_vfef6mA25rD1mQJM6uLMur0u0Wkh5Qd8B3LrWqqZV3mqHdFH7TpqbI8r4f7d5Cx5W8NZiAy3pGnvk-JLZEAjgwE2BkGsUw2cnJn9N4mICdDNDDajlNk59T7Aw0XORM:1x13Qe:6o332O5bVNXV4t5D0-KUcBqzzo85T4tx4eK7nl_7tdY",
+    "expire_date": "2026-09-14T14:56:08.616Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "x4umif7pox3jv3a616kj45xy8zk4fnbw",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2pDSWhhcuu8ZyDAzSNVAUtqV8e7apAvd_vfef6mA25rD1mQJM6uLMur0u0Wkh5Qd8B3LrWqqZV3mqHdFH7TpqbI8r4f7d5Cx5W8NZiAy3pGnvk-JLZEAjgwE2BkGsUw2cnJn9N4mICdDNDDajlNk59T7Aw0XORM:1x92Pq:d0-bEQm-thWul8NPBVLgYurfE0swU6ti9-8q8NynUCc",
+    "expire_date": "2026-10-06T15:28:18.700Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "xfkact0i4iei8ofr44hivf3qcyjabg6j",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2pDSWhhcuu8ZyDAzSNVAUtqV8e7apAvd_vfef6mA25rD1mQJM6uLMur0u0Wkh5Qd8B3LrWqqZV3mqHdFH7TpqbI8r4f7d5Cx5W8NZiAy3pGnvk-JLZEAjgwE2BkGsUw2cnJn9N4mICdDNDDajlNk59T7Aw0XORM:1x13O2:naDQRmxjTxBRyauW-GvlwD1DSngRB7h2dKPAB140hq4",
+    "expire_date": "2026-09-14T14:53:26.173Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "yyonna2sko0o2s2ye18i753z0m7baayd",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2pDSWhhcuu8ZyDAzSNVAUtqV8e7apAvd_vfef6mA25rD1mQJM6uLMur0u0Wkh5Qd8B3LrWqqZV3mqHdFH7TpqbI8r4f7d5Cx5W8NZiAy3pGnvk-JLZEAjgwE2BkGsUw2cnJn9N4mICdDNDDajlNk59T7Aw0XORM:1x92Kg:ALoWQA-eH4e6XH0SG6CpSjJ5LcjV9lClBMgHMeeX3AE",
+    "expire_date": "2026-10-06T15:22:58.515Z"
+  }
+},
+{
+  "model": "accounts.userprofile",
+  "pk": 1,
+  "fields": {
+    "user": [
+      "admin"
+    ],
+    "phone_number": "",
+    "profile_picture": "",
+    "created_at": "2026-08-31T14:37:38.743Z",
+    "updated_at": "2026-09-26T14:06:53.638Z"
+  }
+},
+{
+  "model": "accounts.userprofile",
+  "pk": 2,
+  "fields": {
+    "user": [
+      "rahul"
+    ],
+    "phone_number": "9876500000",
+    "profile_picture": "",
+    "created_at": "2026-08-31T14:38:33.596Z",
+    "updated_at": "2026-09-22T15:46:11.730Z"
+  }
+},
+{
+  "model": "accounts.address",
+  "pk": 1,
+  "fields": {
+    "user": [
+      "rahul"
+    ],
+    "full_name": "Rahul Sharma",
+    "phone_number": "9876500000",
+    "address_line_1": "Flat 402, Sunshine Heights, MG Road",
+    "address_line_2": "Indiranagar",
+    "city": "Bengaluru",
+    "state": "Karnataka",
+    "pin_code": "560038",
+    "landmark": "Near Metro Station",
+    "is_default": true,
+    "created_at": "2026-08-31T14:38:33.633Z",
+    "updated_at": "2026-08-31T14:38:33.633Z"
+  }
+},
+{
+  "model": "accounts.address",
+  "pk": 2,
+  "fields": {
+    "user": [
+      "admin"
+    ],
+    "full_name": "zemi",
+    "phone_number": "889990009",
+    "address_line_1": "122",
+    "address_line_2": "jffkewfernflerjnf",
+    "city": "madurai",
+    "state": "taminadu",
+    "pin_code": "76766",
+    "landmark": "no",
+    "is_default": true,
+    "created_at": "2026-08-31T14:57:59.607Z",
+    "updated_at": "2026-08-31T14:57:59.607Z"
+  }
+},
+{
+  "model": "store.category",
+  "pk": 1,
+  "fields": {
+    "name": "Movies",
+    "slug": "movies",
+    "description": "Iconic cinema posters, cult classics, and cinematic visual masterpieces.",
+    "image": "categories/cat_movies.jpg",
+    "icon": "bi-film",
+    "is_active": true,
+    "created_at": "2026-08-31T14:38:33.688Z"
+  }
+},
+{
+  "model": "store.category",
+  "pk": 2,
+  "fields": {
+    "name": "Anime",
+    "slug": "anime",
+    "description": "Stunning anime art, studio aesthetics, cyberpunk vibes and hero portraits.",
+    "image": "categories/cat_anime.jpg",
+    "icon": "bi-stars",
+    "is_active": true,
+    "created_at": "2026-08-31T14:38:34.151Z"
+  }
+},
+{
+  "model": "store.category",
+  "pk": 3,
+  "fields": {
+    "name": "Cars & Bikes",
+    "slug": "cars-bikes",
+    "description": "Supercars, vintage automotive classics, racing circuits, and motorbike art.",
+    "image": "categories/cat_cars-bikes.jpg",
+    "icon": "bi-speedometer2",
+    "is_active": true,
+    "created_at": "2026-08-31T14:38:34.174Z"
+  }
+},
+{
+  "model": "store.category",
+  "pk": 4,
+  "fields": {
+    "name": "Gaming",
+    "slug": "gaming",
+    "description": "Retro arcade, futuristic RPGs, neon landscapes, and esports tributes.",
+    "image": "categories/cat_gaming.jpg",
+    "icon": "bi-controller",
+    "is_active": true,
+    "created_at": "2026-08-31T14:38:34.198Z"
+  }
+},
+{
+  "model": "store.category",
+  "pk": 5,
+  "fields": {
+    "name": "Quotes",
+    "slug": "quotes",
+    "description": "Inspiring words, motivational mantras, and clean typography wall quotes.",
+    "image": "categories/cat_quotes.jpg",
+    "icon": "bi-chat-quote",
+    "is_active": true,
+    "created_at": "2026-08-31T14:38:34.228Z"
+  }
+},
+{
+  "model": "store.category",
+  "pk": 6,
+  "fields": {
+    "name": "Sports",
+    "slug": "sports",
+    "description": "Legends of football, basketball, cricket, F1, and champion moments.",
+    "image": "categories/cat_sports.jpg",
+    "icon": "bi-trophy",
+    "is_active": true,
+    "created_at": "2026-08-31T14:38:34.250Z"
+  }
+},
+{
+  "model": "store.category",
+  "pk": 7,
+  "fields": {
+    "name": "Nature",
+    "slug": "nature",
+    "description": "Serene mountain peaks, lush rainforests, sunsets, and botanical wonders.",
+    "image": "categories/cat_nature.jpg",
+    "icon": "bi-tree",
+    "is_active": true,
+    "created_at": "2026-08-31T14:38:34.273Z"
+  }
+},
+{
+  "model": "store.category",
+  "pk": 8,
+  "fields": {
+    "name": "Music",
+    "slug": "music",
+    "description": "Vintage vinyl vibes, legendary rock bands, jazz notes, and acoustic tones.",
+    "image": "categories/cat_music.jpg",
+    "icon": "bi-music-note-beamed",
+    "is_active": true,
+    "created_at": "2026-08-31T14:38:34.296Z"
+  }
+},
+{
+  "model": "store.category",
+  "pk": 9,
+  "fields": {
+    "name": "Minimalist",
+    "slug": "minimalist",
+    "description": "Geometric harmony, negative space, modern line art, and Scandinavian forms.",
+    "image": "categories/cat_minimalist.jpg",
+    "icon": "bi-square",
+    "is_active": true,
+    "created_at": "2026-08-31T14:38:34.325Z"
+  }
+},
+{
+  "model": "store.category",
+  "pk": 10,
+  "fields": {
+    "name": "Aesthetic",
+    "slug": "aesthetic",
+    "description": "Dreamy pastel hues, vaporwave palettes, retro-futurism, and mood boards.",
+    "image": "categories/cat_aesthetic.jpg",
+    "icon": "bi-palette",
+    "is_active": true,
+    "created_at": "2026-08-31T14:38:34.348Z"
+  }
+},
+{
+  "model": "store.postersize",
+  "pk": 1,
+  "fields": {
+    "name": "A4 (8.3 × 11.7 in)",
+    "code": "A4",
+    "extra_price": "0.00",
+    "dimensions": "21.0 × 29.7 cm",
+    "is_default": true,
+    "is_active": true,
+    "sort_order": 1
+  }
+},
+{
+  "model": "store.postersize",
+  "pk": 2,
+  "fields": {
+    "name": "A3 (11.7 × 16.5 in)",
+    "code": "A3",
+    "extra_price": "100.00",
+    "dimensions": "29.7 × 42.0 cm",
+    "is_default": false,
+    "is_active": true,
+    "sort_order": 2
+  }
+},
+{
+  "model": "store.postersize",
+  "pk": 3,
+  "fields": {
+    "name": "A2 (16.5 × 23.4 in)",
+    "code": "A2",
+    "extra_price": "250.00",
+    "dimensions": "42.0 × 59.4 cm",
+    "is_default": false,
+    "is_active": true,
+    "sort_order": 3
+  }
+},
+{
+  "model": "store.frameoption",
+  "pk": 1,
+  "fields": {
+    "name": "No Frame (Rolled Canvas)",
+    "frame_type": "none",
+    "extra_price": "0.00",
+    "color_code": "#3F3F46",
+    "image": "",
+    "is_default": true,
+    "is_active": true,
+    "sort_order": 1
+  }
+},
+{
+  "model": "store.frameoption",
+  "pk": 2,
+  "fields": {
+    "name": "Matte Black Wood Frame",
+    "frame_type": "black",
+    "extra_price": "200.00",
+    "color_code": "#18181B",
+    "image": "",
+    "is_default": false,
+    "is_active": true,
+    "sort_order": 2
+  }
+},
+{
+  "model": "store.frameoption",
+  "pk": 3,
+  "fields": {
+    "name": "Modern White Gallery Frame",
+    "frame_type": "white",
+    "extra_price": "200.00",
+    "color_code": "#F4F4F5",
+    "image": "",
+    "is_default": false,
+    "is_active": true,
+    "sort_order": 3
+  }
+},
+{
+  "model": "store.frameoption",
+  "pk": 4,
+  "fields": {
+    "name": "Classic Natural Walnut Frame",
+    "frame_type": "wooden",
+    "extra_price": "300.00",
+    "color_code": "#8B5A2B",
+    "image": "",
+    "is_default": false,
+    "is_active": true,
+    "sort_order": 4
+  }
+},
+{
+  "model": "store.poster",
+  "pk": 1,
+  "fields": {
+    "title": "Interstellar Odyssey",
+    "slug": "interstellar-odyssey",
+    "description": "A breathtaking visual tribute to the cosmic journey across gargantua, black holes, and dimensions. Premium 300 GSM matte art paper with rich blacks and stellar contrast.",
+    "category": 1,
+    "main_image": "posters/poster_interstellar-odyssey.jpg",
+    "base_price": "299.00",
+    "stock": 45,
+    "rating": "4.9",
+    "is_featured": false,
+    "is_trending": false,
+    "is_bestseller": false,
+    "tags": "movies, sci-fi, space, interstellar, christopher nolan, cosmos",
+    "source_filename": "",
+    "is_active": false,
+    "created_at": "2026-08-31T14:38:34.373Z",
+    "updated_at": "2026-08-31T14:38:34.392Z"
+  }
+},
+{
+  "model": "store.poster",
+  "pk": 2,
+  "fields": {
+    "title": "The Dark Knight Minimalist",
+    "slug": "the-dark-knight-minimalist",
+    "description": "Gotham skyline framed in the iconic bat silhouette. Moody, dramatic, and sleekly styled for modern living rooms and entertainment lounges.",
+    "category": 1,
+    "main_image": "posters/poster_the-dark-knight-minimalist.jpg",
+    "base_price": "329.00",
+    "stock": 60,
+    "rating": "5.0",
+    "is_featured": false,
+    "is_trending": false,
+    "is_bestseller": false,
+    "tags": "batman, dark knight, gotham, movies, cinema",
+    "source_filename": "",
+    "is_active": false,
+    "created_at": "2026-08-31T14:38:34.406Z",
+    "updated_at": "2026-08-31T14:38:34.433Z"
+  }
+},
+{
+  "model": "store.poster",
+  "pk": 3,
+  "fields": {
+    "title": "Neon Tokyo Cyberpunk 2099",
+    "slug": "neon-tokyo-cyberpunk-2099",
+    "description": "Rain-slicked neon streets, futuristic kanji signs, and glowing cyber aesthetics. Vibrant pigment print that pops in any gaming or creative studio setup.",
+    "category": 2,
+    "main_image": "posters/poster_neon-tokyo-cyberpunk-2099.jpg",
+    "base_price": "349.00",
+    "stock": 80,
+    "rating": "4.8",
+    "is_featured": false,
+    "is_trending": false,
+    "is_bestseller": false,
+    "tags": "anime, cyberpunk, tokyo, neon, japan, aesthetic",
+    "source_filename": "",
+    "is_active": false,
+    "created_at": "2026-08-31T14:38:34.447Z",
+    "updated_at": "2026-08-31T14:38:34.465Z"
+  }
+},
+{
+  "model": "store.poster",
+  "pk": 4,
+  "fields": {
+    "title": "Spirited Sky Castle",
+    "slug": "spirited-sky-castle",
+    "description": "Dreamlike watercolor clouds and soaring retro airships reminiscent of classic studio anime masterpieces. Warm, nostalgic, and peaceful.",
+    "category": 2,
+    "main_image": "posters/poster_spirited-sky-castle.jpg",
+    "base_price": "299.00",
+    "stock": 35,
+    "rating": "4.9",
+    "is_featured": false,
+    "is_trending": false,
+    "is_bestseller": false,
+    "tags": "anime, ghibli, sky, clouds, fantasy, studio",
+    "source_filename": "",
+    "is_active": false,
+    "created_at": "2026-08-31T14:38:34.474Z",
+    "updated_at": "2026-08-31T14:38:34.488Z"
+  }
+},
+{
+  "model": "store.poster",
+  "pk": 5,
+  "fields": {
+    "title": "Porsche 911 Turbo Classic",
+    "slug": "porsche-911-turbo-classic",
+    "description": "Pure automotive perfection. The unmistakable silhouette of the timeless 911 Turbo captured in clean monochrome line art with racing yellow accents.",
+    "category": 3,
+    "main_image": "posters/poster_porsche-911-turbo-classic.jpg",
+    "base_price": "399.00",
+    "stock": 50,
+    "rating": "4.9",
+    "is_featured": false,
+    "is_trending": false,
+    "is_bestseller": false,
+    "tags": "cars, porsche, 911, turbo, automotive, supercar, german",
+    "source_filename": "",
+    "is_active": false,
+    "created_at": "2026-08-31T14:38:34.498Z",
+    "updated_at": "2026-08-31T14:38:34.514Z"
+  }
+},
+{
+  "model": "store.poster",
+  "pk": 6,
+  "fields": {
+    "title": "Monaco Grand Prix Vintage 1976",
+    "slug": "monaco-grand-prix-vintage-1976",
+    "description": "Retro F1 motorsport racing poster depicting the legendary Monte Carlo street circuit and classic open-wheel racers.",
+    "category": 3,
+    "main_image": "posters/poster_monaco-grand-prix-vintage-1976.jpg",
+    "base_price": "319.00",
+    "stock": 40,
+    "rating": "4.7",
+    "is_featured": false,
+    "is_trending": false,
+    "is_bestseller": false,
+    "tags": "f1, monaco, racing, motorsport, vintage cars, speed",
+    "source_filename": "",
+    "is_active": false,
+    "created_at": "2026-08-31T14:38:34.524Z",
+    "updated_at": "2026-08-31T14:38:34.539Z"
+  }
+},
+{
+  "model": "store.poster",
+  "pk": 7,
+  "fields": {
+    "title": "Pixel Quest Arcade Realm",
+    "slug": "pixel-quest-arcade-realm",
+    "description": "Nostalgic 16-bit retro arcade aesthetic mixed with modern synthwave glow. The ultimate accent piece for battlestations and gaming dens.",
+    "category": 4,
+    "main_image": "posters/poster_pixel-quest-arcade-realm.jpg",
+    "base_price": "289.00",
+    "stock": 75,
+    "rating": "4.8",
+    "is_featured": false,
+    "is_trending": false,
+    "is_bestseller": false,
+    "tags": "gaming, arcade, retro, 8bit, synthwave, controller",
+    "source_filename": "",
+    "is_active": false,
+    "created_at": "2026-08-31T14:38:34.550Z",
+    "updated_at": "2026-08-31T14:38:34.563Z"
+  }
+},
+{
+  "model": "store.poster",
+  "pk": 8,
+  "fields": {
+    "title": "Elden Warrior In Solitude",
+    "slug": "elden-warrior-in-solitude",
+    "description": "Golden erdtree glow illuminating a lone tarnished knight atop a jagged cliff. Majestic fantasy composition with incredible depth.",
+    "category": 4,
+    "main_image": "posters/poster_elden-warrior-in-solitude.jpg",
+    "base_price": "359.00",
+    "stock": 30,
+    "rating": "5.0",
+    "is_featured": false,
+    "is_trending": false,
+    "is_bestseller": false,
+    "tags": "gaming, souls, fantasy, elden, knight, epic",
+    "source_filename": "",
+    "is_active": false,
+    "created_at": "2026-08-31T14:38:34.576Z",
+    "updated_at": "2026-08-31T14:38:34.598Z"
+  }
+},
+{
+  "model": "store.poster",
+  "pk": 9,
+  "fields": {
+    "title": "Stay Hungry, Stay Foolish",
+    "slug": "stay-hungry-stay-foolish",
+    "description": "Timeless bold typography designed with Swiss modernist layout principles. Inspires ambition, relentless curiosity and grit every morning.",
+    "category": 5,
+    "main_image": "posters/poster_stay-hungry-stay-foolish.jpg",
+    "base_price": "279.00",
+    "stock": 90,
+    "rating": "4.8",
+    "is_featured": false,
+    "is_trending": false,
+    "is_bestseller": false,
+    "tags": "quotes, motivation, steve jobs, typography, office, inspiration",
+    "source_filename": "",
+    "is_active": false,
+    "created_at": "2026-08-31T14:38:34.613Z",
+    "updated_at": "2026-08-31T14:38:34.631Z"
+  }
+},
+{
+  "model": "store.poster",
+  "pk": 10,
+  "fields": {
+    "title": "Do Epic Shit Daily",
+    "slug": "do-epic-shit-daily",
+    "description": "Energetic, modern minimal typography printed with high-density pigment ink on premium heavyweight paper. Perfect desk companion.",
+    "category": 5,
+    "main_image": "posters/poster_do-epic-shit-daily.jpg",
+    "base_price": "269.00",
+    "stock": 65,
+    "rating": "4.7",
+    "is_featured": false,
+    "is_trending": false,
+    "is_bestseller": false,
+    "tags": "quotes, typography, daily, hustle, motivation",
+    "source_filename": "",
+    "is_active": false,
+    "created_at": "2026-08-31T14:38:34.658Z",
+    "updated_at": "2026-08-31T14:38:34.673Z"
+  }
+},
+{
+  "model": "store.poster",
+  "pk": 11,
+  "fields": {
+    "title": "Mamba Mentality 24",
+    "slug": "mamba-mentality-24",
+    "description": "A tribute to relentless dedication and championship excellence. Bold silhouette in signature purple and gold tones.",
+    "category": 6,
+    "main_image": "posters/poster_mamba-mentality-24.jpg",
+    "base_price": "349.00",
+    "stock": 55,
+    "rating": "5.0",
+    "is_featured": false,
+    "is_trending": false,
+    "is_bestseller": false,
+    "tags": "sports, basketball, kobe, mamba, lakers, champion",
+    "source_filename": "",
+    "is_active": false,
+    "created_at": "2026-08-31T14:38:34.685Z",
+    "updated_at": "2026-08-31T14:38:34.701Z"
+  }
+},
+{
+  "model": "store.poster",
+  "pk": 12,
+  "fields": {
+    "title": "The Greatest GOAT 10",
+    "slug": "the-greatest-goat-10",
+    "description": "Celebration of football magic and world cup glory. Clean editorial design featuring iconic jersey number 10.",
+    "category": 6,
+    "main_image": "posters/poster_the-greatest-goat-10.jpg",
+    "base_price": "349.00",
+    "stock": 70,
+    "rating": "4.9",
+    "is_featured": false,
+    "is_trending": false,
+    "is_bestseller": false,
+    "tags": "football, soccer, messi, goat, world cup, sports",
+    "source_filename": "",
+    "is_active": false,
+    "created_at": "2026-08-31T14:38:34.714Z",
+    "updated_at": "2026-08-31T14:38:34.730Z"
+  }
+},
+{
+  "model": "store.poster",
+  "pk": 13,
+  "fields": {
+    "title": "Misty Alpine Sunrise",
+    "slug": "misty-alpine-sunrise",
+    "description": "Layers of evergreen pine forests emerging through morning mist beneath snowcapped alpine peaks. Calming, restorative atmosphere for bedrooms.",
+    "category": 7,
+    "main_image": "posters/poster_misty-alpine-sunrise.jpg",
+    "base_price": "299.00",
+    "stock": 40,
+    "rating": "4.8",
+    "is_featured": false,
+    "is_trending": false,
+    "is_bestseller": false,
+    "tags": "nature, mountains, sunrise, forest, landscape, peace",
+    "source_filename": "",
+    "is_active": false,
+    "created_at": "2026-08-31T14:38:34.741Z",
+    "updated_at": "2026-08-31T14:38:34.756Z"
+  }
+},
+{
+  "model": "store.poster",
+  "pk": 14,
+  "fields": {
+    "title": "Golden Hour Pacific Wave",
+    "slug": "golden-hour-pacific-wave",
+    "description": "Powerful ocean wave curling against the setting sun. Brings natural ocean energy and soothing warmth to any interior.",
+    "category": 7,
+    "main_image": "posters/poster_golden-hour-pacific-wave.jpg",
+    "base_price": "319.00",
+    "stock": 45,
+    "rating": "4.7",
+    "is_featured": false,
+    "is_trending": false,
+    "is_bestseller": false,
+    "tags": "ocean, wave, surf, sunset, sea, nature",
+    "source_filename": "",
+    "is_active": false,
+    "created_at": "2026-08-31T14:38:34.770Z",
+    "updated_at": "2026-08-31T14:38:34.785Z"
+  }
+},
+{
+  "model": "store.poster",
+  "pk": 15,
+  "fields": {
+    "title": "Abbey Road Crosswalk",
+    "slug": "abbey-road-crosswalk",
+    "description": "Iconic musical heritage reimagined in a clean Bauhaus geometry style. A must-have for classic rock lovers and vinyl enthusiasts.",
+    "category": 8,
+    "main_image": "posters/poster_abbey-road-crosswalk.jpg",
+    "base_price": "329.00",
+    "stock": 50,
+    "rating": "4.9",
+    "is_featured": false,
+    "is_trending": false,
+    "is_bestseller": false,
+    "tags": "music, beatles, rock, vinyl, retro, london",
+    "source_filename": "",
+    "is_active": false,
+    "created_at": "2026-08-31T14:38:34.800Z",
+    "updated_at": "2026-08-31T14:38:34.815Z"
+  }
+},
+{
+  "model": "store.poster",
+  "pk": 16,
+  "fields": {
+    "title": "Midnight Jazz Club NYC",
+    "slug": "midnight-jazz-club-nyc",
+    "description": "Saxophone melodies swirling in moody midnight blue and warm brass tones. Evokes vintage Greenwich Village speakeasies.",
+    "category": 8,
+    "main_image": "posters/poster_midnight-jazz-club-nyc.jpg",
+    "base_price": "299.00",
+    "stock": 35,
+    "rating": "4.8",
+    "is_featured": false,
+    "is_trending": false,
+    "is_bestseller": false,
+    "tags": "jazz, music, saxophone, new york, vintage",
+    "source_filename": "",
+    "is_active": false,
+    "created_at": "2026-08-31T14:38:34.828Z",
+    "updated_at": "2026-08-31T14:38:34.843Z"
+  }
+},
+{
+  "model": "store.poster",
+  "pk": 17,
+  "fields": {
+    "title": "Bauhaus Geometric Balance",
+    "slug": "bauhaus-geometric-balance",
+    "description": "Pure form, primary balance, and architectural geometry. Printed on archival cotton-blend paper for high visual prestige.",
+    "category": 9,
+    "main_image": "posters/poster_bauhaus-geometric-balance.jpg",
+    "base_price": "349.00",
+    "stock": 60,
+    "rating": "4.9",
+    "is_featured": false,
+    "is_trending": false,
+    "is_bestseller": false,
+    "tags": "minimalist, bauhaus, geometry, scandinavian, modern, abstract",
+    "source_filename": "",
+    "is_active": false,
+    "created_at": "2026-08-31T14:38:34.857Z",
+    "updated_at": "2026-08-31T14:38:34.871Z"
+  }
+},
+{
+  "model": "store.poster",
+  "pk": 18,
+  "fields": {
+    "title": "Zen Circle Enso Flow",
+    "slug": "zen-circle-enso-flow",
+    "description": "Single-stroke sumi ink enso circle symbolizing presence, focus, and quiet strength. Brings mindful calm to workspaces.",
+    "category": 9,
+    "main_image": "posters/poster_zen-circle-enso-flow.jpg",
+    "base_price": "289.00",
+    "stock": 40,
+    "rating": "4.7",
+    "is_featured": false,
+    "is_trending": false,
+    "is_bestseller": false,
+    "tags": "zen, enso, circle, japanese, minimalist, focus",
+    "source_filename": "",
+    "is_active": false,
+    "created_at": "2026-08-31T14:38:34.884Z",
+    "updated_at": "2026-08-31T14:38:34.902Z"
+  }
+},
+{
+  "model": "store.poster",
+  "pk": 19,
+  "fields": {
+    "title": "Pastel Dunes Oasis",
+    "slug": "pastel-dunes-oasis",
+    "description": "Soft terracotta, blush pink, and sage green architectural arches framing desert dunes. On-trend modern boho aesthetic.",
+    "category": 10,
+    "main_image": "posters/poster_pastel-dunes-oasis.jpg",
+    "base_price": "329.00",
+    "stock": 55,
+    "rating": "4.9",
+    "is_featured": false,
+    "is_trending": false,
+    "is_bestseller": false,
+    "tags": "aesthetic, pastel, boho, dunes, terracotta, modern art",
+    "source_filename": "",
+    "is_active": false,
+    "created_at": "2026-08-31T14:38:34.917Z",
+    "updated_at": "2026-08-31T14:38:34.932Z"
+  }
+},
+{
+  "model": "store.poster",
+  "pk": 20,
+  "fields": {
+    "title": "Vaporwave Sunset Horizon",
+    "slug": "vaporwave-sunset-horizon",
+    "description": "80s retro-futurism with purple chrome sun, palm silhouettes, and wireframe grids. Vibrant and atmospheric.",
+    "category": 10,
+    "main_image": "posters/poster_vaporwave-sunset-horizon.jpg",
+    "base_price": "299.00",
+    "stock": 48,
+    "rating": "4.8",
+    "is_featured": false,
+    "is_trending": false,
+    "is_bestseller": false,
+    "tags": "vaporwave, aesthetic, 80s, synth, neon, sunset",
+    "source_filename": "",
+    "is_active": false,
+    "created_at": "2026-08-31T14:38:34.945Z",
+    "updated_at": "2026-08-31T14:38:34.960Z"
+  }
+},
+{
+  "model": "store.poster",
+  "pk": 21,
+  "fields": {
+    "title": "Game Zone Neon Gaming Poster",
+    "slug": "game-zone-neon-gaming-poster",
+    "description": "Vibrant neon Game Zone art poster designed for gaming setups, streamer rooms, and entertainment lounges. Printed on museum-grade 300 GSM archival matte art paper.",
+    "category": 4,
+    "main_image": "posters/game-zone-neon-gaming-poster.jpg",
+    "base_price": "299.00",
+    "stock": 20,
+    "rating": "4.9",
+    "is_featured": true,
+    "is_trending": true,
+    "is_bestseller": true,
+    "tags": "gaming, neon, game zone, arcade, gamer, controller, wall art, room decor",
+    "source_filename": "'Game Zone Poster' Poster, picture, metal print, paint by StonebridgeArt _ Displate.jpg",
+    "is_active": true,
+    "created_at": "2026-09-22T15:24:34.632Z",
+    "updated_at": "2026-09-22T15:31:37.354Z"
+  }
+},
+{
+  "model": "store.poster",
+  "pk": 22,
+  "fields": {
+    "title": "Dodge Challenger SRT Hellcat Poster",
+    "slug": "dodge-challenger-srt-hellcat-poster",
+    "description": "Bold and sleek Dodge Challenger SRT Hellcat illustration against a vivid yellow backdrop. High-contrast automotive artwork engineered for car enthusiasts and studio garages.",
+    "category": 3,
+    "main_image": "posters/dodge-challenger-srt-hellcat-poster.jpg",
+    "base_price": "349.00",
+    "stock": 20,
+    "rating": "4.9",
+    "is_featured": true,
+    "is_trending": true,
+    "is_bestseller": true,
+    "tags": "cars, dodge, srt, hellcat, muscle car, yellow, automotive, speed, supercar",
+    "source_filename": "45387908741001767.jpg",
+    "is_active": true,
+    "created_at": "2026-09-22T15:24:34.678Z",
+    "updated_at": "2026-09-22T15:31:37.376Z"
+  }
+},
+{
+  "model": "store.poster",
+  "pk": 23,
+  "fields": {
+    "title": "Anbe Sivam Classic Cinema Poster",
+    "slug": "anbe-sivam-classic-cinema-poster",
+    "description": "Tribute artwork celebrating the timeless cult classic Anbe Sivam. Rich storytelling art piece on heavyweight 300 GSM matte paper for cinema lovers.",
+    "category": 1,
+    "main_image": "posters/anbe-sivam-classic-cinema-poster.jpg",
+    "base_price": "329.00",
+    "stock": 20,
+    "rating": "5.0",
+    "is_featured": true,
+    "is_trending": true,
+    "is_bestseller": true,
+    "tags": "movies, anbe sivam, kamal haasan, madhavan, cult classic, kollywood, cinema, classic film",
+    "source_filename": "Anbe sivam⚛️ #anbesivam #anbesivammovie….jpg",
+    "is_active": true,
+    "created_at": "2026-09-22T15:24:34.715Z",
+    "updated_at": "2026-09-22T15:31:37.382Z"
+  }
+},
+{
+  "model": "store.poster",
+  "pk": 24,
+  "fields": {
+    "title": "Anirudh Ravichander Musical Maestro Poster",
+    "slug": "anirudh-ravichander-musical-maestro-poster",
+    "description": "High-energy concert and portrait art poster celebrating musical powerhouse Anirudh Ravichander. Perfect for music studios, bedroom walls, and audiophile corners.",
+    "category": 8,
+    "main_image": "posters/anirudh-ravichander-musical-maestro-poster.jpg",
+    "base_price": "329.00",
+    "stock": 20,
+    "rating": "4.9",
+    "is_featured": true,
+    "is_trending": true,
+    "is_bestseller": false,
+    "tags": "music, anirudh ravichander, composer, rockstar, concert, artist, live tour",
+    "source_filename": "Anirudh Ravichander.jpg",
+    "is_active": true,
+    "created_at": "2026-09-22T15:24:34.737Z",
+    "updated_at": "2026-09-22T15:31:37.388Z"
+  }
+},
+{
+  "model": "store.poster",
+  "pk": 25,
+  "fields": {
+    "title": "Classic 1969 Mustang Muscle Car Poster",
+    "slug": "classic-1969-mustang-muscle-car-poster",
+    "description": "The timeless 1969 Ford Mustang captured in classic automotive aesthetic. Museum-grade fine art giclée print with archival fade-resistant pigment inks.",
+    "category": 3,
+    "main_image": "posters/classic-1969-mustang-muscle-car-poster.jpg",
+    "base_price": "349.00",
+    "stock": 20,
+    "rating": "4.8",
+    "is_featured": true,
+    "is_trending": false,
+    "is_bestseller": true,
+    "tags": "cars, mustang, ford mustang, 1969, american muscle, vintage cars, automotive, classic",
+    "source_filename": "Classic 1969 Mustang – Timeless American Muscle Car.jpg",
+    "is_active": true,
+    "created_at": "2026-09-22T15:24:34.754Z",
+    "updated_at": "2026-09-22T15:31:37.394Z"
+  }
+},
+{
+  "model": "store.poster",
+  "pk": 26,
+  "fields": {
+    "title": "HipHop Tamizha Musical Icon Poster",
+    "slug": "hiphop-tamizha-musical-icon-poster",
+    "description": "Iconic portrait artwork of HipHop Tamizha Adhi. Dynamic urban styling printed with sharp detail on 300 GSM heavyweight art paper.",
+    "category": 8,
+    "main_image": "posters/hiphop-tamizha-musical-icon-poster.jpg",
+    "base_price": "299.00",
+    "stock": 20,
+    "rating": "4.8",
+    "is_featured": false,
+    "is_trending": true,
+    "is_bestseller": false,
+    "tags": "music, hiphop tamizha, adhi, indie music, hip hop, artist, concert, independent music",
+    "source_filename": "HipHop Tamizha Poster.jpg",
+    "is_active": true,
+    "created_at": "2026-09-22T15:24:34.771Z",
+    "updated_at": "2026-09-22T15:31:37.401Z"
+  }
+},
+{
+  "model": "store.poster",
+  "pk": 27,
+  "fields": {
+    "title": "Mankatha Action Cinema Poster",
+    "slug": "mankatha-action-cinema-poster",
+    "description": "Stylish high-octane Mankatha cinema tribute poster featuring Ajith Kumar. Crisp detail and dramatic tone for Indian cinema collections.",
+    "category": 1,
+    "main_image": "posters/mankatha-action-cinema-poster.jpg",
+    "base_price": "329.00",
+    "stock": 20,
+    "rating": "4.9",
+    "is_featured": true,
+    "is_trending": true,
+    "is_bestseller": false,
+    "tags": "movies, mankatha, ajith kumar, thala, kollywood, action, heist, cinema tribute",
+    "source_filename": "Mankatha 4k Wallpaper.jpg",
+    "is_active": true,
+    "created_at": "2026-09-22T15:24:34.789Z",
+    "updated_at": "2026-09-22T15:31:37.406Z"
+  }
+},
+{
+  "model": "store.poster",
+  "pk": 28,
+  "fields": {
+    "title": "Orange Cat Playing Valorant Poster",
+    "slug": "orange-cat-playing-valorant-poster",
+    "description": "Whimsical and endearing art print of an orange tabby cat immersed in a Valorant match. High-definition vibrant art print for cozy desk and gaming setups.",
+    "category": 4,
+    "main_image": "posters/orange-cat-playing-valorant-poster.jpg",
+    "base_price": "299.00",
+    "stock": 20,
+    "rating": "4.9",
+    "is_featured": true,
+    "is_trending": true,
+    "is_bestseller": true,
+    "tags": "gaming, cat, orange cat, valorant, funny, cute, esports, pc gaming, cozy",
+    "source_filename": "Orange cat playing valorant.jpg",
+    "is_active": true,
+    "created_at": "2026-09-22T15:24:34.803Z",
+    "updated_at": "2026-09-22T15:31:37.410Z"
+  }
+},
+{
+  "model": "store.poster",
+  "pk": 29,
+  "fields": {
+    "title": "Royal Enfield Continental GT 650 Poster",
+    "slug": "royal-enfield-continental-gt-650-poster",
+    "description": "Handcrafted cafe racer aesthetic featuring the Royal Enfield Continental GT 650. Premium matte finish highlighting chrome detailing and twin-cylinder heritage.",
+    "category": 3,
+    "main_image": "posters/royal-enfield-continental-gt-650-poster.jpg",
+    "base_price": "349.00",
+    "stock": 20,
+    "rating": "4.8",
+    "is_featured": false,
+    "is_trending": true,
+    "is_bestseller": false,
+    "tags": "bikes, royal enfield, continental gt 650, cafe racer, motorcycle, automotive, twin cylinder",
+    "source_filename": "ROYAL ENFIELD GT-650.jpg",
+    "is_active": true,
+    "created_at": "2026-09-22T15:24:34.820Z",
+    "updated_at": "2026-09-22T15:31:37.417Z"
+  }
+},
+{
+  "model": "store.poster",
+  "pk": 30,
+  "fields": {
+    "title": "Vintage Alpine Mountain Peak Poster",
+    "slug": "vintage-alpine-mountain-peak-poster",
+    "description": "Nostalgic vintage travel artwork portraying majestic snow-covered alpine mountain peaks. Serene earthy tones ideal for minimalist and nature-inspired spaces.",
+    "category": 7,
+    "main_image": "posters/vintage-alpine-mountain-peak-poster.jpg",
+    "base_price": "329.00",
+    "stock": 20,
+    "rating": "4.8",
+    "is_featured": true,
+    "is_trending": false,
+    "is_bestseller": false,
+    "tags": "nature, mountain, alpine, peak, snow, vintage travel, landscape, scandinavian, travel poster",
+    "source_filename": "This is a vintage-style decorative poster featuring a towering, snow-capped mountain peak _.jpg",
+    "is_active": true,
+    "created_at": "2026-09-22T15:24:34.839Z",
+    "updated_at": "2026-09-22T15:31:37.422Z"
+  }
+},
+{
+  "model": "store.poster",
+  "pk": 31,
+  "fields": {
+    "title": "MS Dhoni The Legend Cricket Poster",
+    "slug": "ms-dhoni-the-legend-cricket-poster",
+    "description": "Commemorative fine art tribute to India's legendary captain MS Dhoni. Captures unforgettable championship glory on museum-quality 300 GSM matte art paper.",
+    "category": 6,
+    "main_image": "posters/ms-dhoni-the-legend-cricket-poster.jpg",
+    "base_price": "349.00",
+    "stock": 20,
+    "rating": "5.0",
+    "is_featured": true,
+    "is_trending": true,
+    "is_bestseller": true,
+    "tags": "sports, ms dhoni, cricket, captain cool, csk, india, legends, thala, world cup",
+    "source_filename": "_ The legend, M S DHONI 🔥✨!!  •Follow for more….jpg",
+    "is_active": true,
+    "created_at": "2026-09-22T15:24:34.857Z",
+    "updated_at": "2026-09-22T15:31:37.427Z"
+  }
+},
+{
+  "model": "store.poster",
+  "pk": 32,
+  "fields": {
+    "title": "Ochre Sun Abstract Geometric Poster",
+    "slug": "ochre-sun-abstract-geometric-poster",
+    "description": "Modern Scandinavian abstract art print featuring an oversized ochre sun and organic forms. Warm minimalist palette designed for contemporary living rooms.",
+    "category": 9,
+    "main_image": "posters/ochre-sun-abstract-geometric-poster.jpg",
+    "base_price": "299.00",
+    "stock": 20,
+    "rating": "4.7",
+    "is_featured": false,
+    "is_trending": false,
+    "is_bestseller": false,
+    "tags": "minimalist, abstract, ochre sun, geometric, modern art, scandinavian, aesthetic, boho",
+    "source_filename": "_Make abstract poster art featuring oversized ochre suns and.jpg",
+    "is_active": true,
+    "created_at": "2026-09-22T15:24:34.875Z",
+    "updated_at": "2026-09-22T15:31:37.433Z"
+  }
+},
+{
+  "model": "store.poster",
+  "pk": 33,
+  "fields": {
+    "title": "Spider-Man With Great Power Poster",
+    "slug": "spider-man-with-great-power-poster",
+    "description": "Iconic Spider-Man cinematic art poster portraying the legendary superhero mantle. Deep rich blacks and vivid suit textures on 300 GSM archival stock.",
+    "category": 1,
+    "main_image": "posters/spider-man-with-great-power-poster.jpg",
+    "base_price": "349.00",
+    "stock": 20,
+    "rating": "4.9",
+    "is_featured": true,
+    "is_trending": true,
+    "is_bestseller": true,
+    "tags": "movies, spiderman, marvel, with great power, superhero, comics, cinema, peter parker",
+    "source_filename": "_With great power comes a new era_ 🕷️_The Spider….jpg",
+    "is_active": true,
+    "created_at": "2026-09-22T15:24:34.891Z",
+    "updated_at": "2026-09-22T15:31:37.440Z"
+  }
+},
+{
+  "model": "store.poster",
+  "pk": 34,
+  "fields": {
+    "title": "All Is Well When You're Happy Quote Poster",
+    "slug": "all-is-well-when-youre-happy-quote-poster",
+    "description": "Uplifting typography quote poster spreading positive mindfulness and cheer. Clean layout suitable for bedrooms, offices, and creative workstations.",
+    "category": 5,
+    "main_image": "posters/all-is-well-when-youre-happy-quote-poster.jpg",
+    "base_price": "299.00",
+    "stock": 20,
+    "rating": "4.8",
+    "is_featured": false,
+    "is_trending": false,
+    "is_bestseller": false,
+    "tags": "quotes, motivational, happiness, typography, positive vibes, wall quote, mindfulness",
+    "source_filename": "all is well when you're  happy 😊.jpg",
+    "is_active": true,
+    "created_at": "2026-09-22T15:24:34.908Z",
+    "updated_at": "2026-09-22T15:31:37.445Z"
+  }
+},
+{
+  "model": "store.poster",
+  "pk": 35,
+  "fields": {
+    "title": "One Piece Anime Art Poster",
+    "slug": "one-piece-anime-art-poster",
+    "description": "Epic One Piece anime art poster celebrating the grand adventure across the seas. Vivid colors and crisp lines printed on premium matte art paper.",
+    "category": 2,
+    "main_image": "posters/one-piece-anime-art-poster.jpg",
+    "base_price": "349.00",
+    "stock": 20,
+    "rating": "5.0",
+    "is_featured": true,
+    "is_trending": true,
+    "is_bestseller": true,
+    "tags": "anime, one piece, luffy, straw hat, shonen, manga, anime art, grand line",
+    "source_filename": "anime one piece.jpg",
+    "is_active": true,
+    "created_at": "2026-09-22T15:24:34.926Z",
+    "updated_at": "2026-09-22T15:31:37.451Z"
+  }
+},
+{
+  "model": "store.poster",
+  "pk": 36,
+  "fields": {
+    "title": "Don't Let Idiots Ruin Your Day Quote Poster",
+    "slug": "dont-let-idiots-ruin-your-day-quote-poster",
+    "description": "Witty vintage-style typography art reminding you to protect your peace. Printed with distressed retro lettering on museum-grade heavyweight matte paper.",
+    "category": 5,
+    "main_image": "posters/dont-let-idiots-ruin-your-day-quote-poster.jpg",
+    "base_price": "299.00",
+    "stock": 20,
+    "rating": "4.9",
+    "is_featured": true,
+    "is_trending": true,
+    "is_bestseller": false,
+    "tags": "quotes, humor, typography, vintage, funny quotes, motivational, office decor",
+    "source_filename": "don't let idiots ruin your day, vintage typography poster Stock Illustration.jpg",
+    "is_active": true,
+    "created_at": "2026-09-22T15:24:34.949Z",
+    "updated_at": "2026-09-22T15:31:37.460Z"
+  }
+},
+{
+  "model": "store.poster",
+  "pk": 37,
+  "fields": {
+    "title": "Coastal Sunset Beach Paradise Poster",
+    "slug": "coastal-sunset-beach-paradise-poster",
+    "description": "Breathtaking golden-hour panoramic view of an untouched coastal cove and turquoise ocean waters. Vivid natural lighting that brings warmth to any room.",
+    "category": 7,
+    "main_image": "posters/coastal-sunset-beach-paradise-poster.png",
+    "base_price": "329.00",
+    "stock": 20,
+    "rating": "4.8",
+    "is_featured": false,
+    "is_trending": true,
+    "is_bestseller": false,
+    "tags": "nature, coastal, beach, ocean, sunset, cliff, sea, scenic landscape, paradise",
+    "source_filename": "images (1).png",
+    "is_active": true,
+    "created_at": "2026-09-22T15:24:34.978Z",
+    "updated_at": "2026-09-22T15:31:37.477Z"
+  }
+},
+{
+  "model": "store.poster",
+  "pk": 38,
+  "fields": {
+    "title": "Bauhaus Exhibition 1923 Geometric Poster",
+    "slug": "bauhaus-exhibition-1923-geometric-poster",
+    "description": "Authentic reissue artwork of the historic 1923 Bauhaus Weimar Exhibition. Iconic primary colors and isometric cube geometry for design aficionados.",
+    "category": 9,
+    "main_image": "posters/bauhaus-exhibition-1923-geometric-poster.png",
+    "base_price": "329.00",
+    "stock": 20,
+    "rating": "4.9",
+    "is_featured": true,
+    "is_trending": false,
+    "is_bestseller": true,
+    "tags": "minimalist, bauhaus, 1923, exhibition, geometric, vintage design, modern art, typography",
+    "source_filename": "images.png",
+    "is_active": true,
+    "created_at": "2026-09-22T15:24:34.994Z",
+    "updated_at": "2026-09-22T15:31:37.485Z"
+  }
+},
+{
+  "model": "store.poster",
+  "pk": 39,
+  "fields": {
+    "title": "OK Kanmani Romantic Cinema Poster",
+    "slug": "ok-kanmani-romantic-cinema-poster",
+    "description": "Warm and intimate movie poster artwork commemorating Mani Ratnam's modern romance classic OK Kanmani. Rich cinematic visuals on 300 GSM paper.",
+    "category": 1,
+    "main_image": "posters/ok-kanmani-romantic-cinema-poster.jpg",
+    "base_price": "329.00",
+    "stock": 20,
+    "rating": "4.8",
+    "is_featured": false,
+    "is_trending": true,
+    "is_bestseller": false,
+    "tags": "movies, ok kanmani, mani ratnam, dulquer salmaan, nithya menen, romance, cinema, kollywood",
+    "source_filename": "ok kanmani poster.jpg",
+    "is_active": true,
+    "created_at": "2026-09-22T15:24:35.009Z",
+    "updated_at": "2026-09-22T15:31:37.490Z"
+  }
+},
+{
+  "model": "store.poster",
+  "pk": 40,
+  "fields": {
+    "title": "Desert Oasis Sand Dunes Art Poster",
+    "slug": "desert-oasis-sand-dunes-art-poster",
+    "description": "Sculptural white sand dunes curving gracefully around a pristine freshwater lagoon. Harmonious blend of earth tones and crystal clear waters.",
+    "category": 7,
+    "main_image": "posters/desert-oasis-sand-dunes-art-poster.png",
+    "base_price": "349.00",
+    "stock": 20,
+    "rating": "4.8",
+    "is_featured": false,
+    "is_trending": false,
+    "is_bestseller": false,
+    "tags": "nature, desert dunes, oasis, sand, minimalist nature, aerial photography, landscape",
+    "source_filename": "pexels-photo-34115440.png",
+    "is_active": true,
+    "created_at": "2026-09-22T15:24:35.027Z",
+    "updated_at": "2026-09-22T15:31:37.496Z"
+  }
+},
+{
+  "model": "store.poster",
+  "pk": 41,
+  "fields": {
+    "title": "Cristiano Ronaldo CR7 Football Legend Poster",
+    "slug": "cristiano-ronaldo-cr7-football-legend-poster",
+    "description": "Dynamic athletic tribute to football icon Cristiano Ronaldo. Powerful stance and stadium lighting captured on archival gallery paper.",
+    "category": 6,
+    "main_image": "posters/cristiano-ronaldo-cr7-football-legend-poster.jpg",
+    "base_price": "349.00",
+    "stock": 20,
+    "rating": "5.0",
+    "is_featured": true,
+    "is_trending": true,
+    "is_bestseller": true,
+    "tags": "sports, ronaldo, cr7, football, soccer, real madrid, portugal, goat, stadium",
+    "source_filename": "ronaldooo.jpg",
+    "is_active": true,
+    "created_at": "2026-09-22T15:24:35.047Z",
+    "updated_at": "2026-09-22T15:31:37.502Z"
+  }
+},
+{
+  "model": "store.poster",
+  "pk": 42,
+  "fields": {
+    "title": "Vada Chennai Cult Cinema Poster",
+    "slug": "vada-chennai-cult-cinema-poster",
+    "description": "Raw, gritty, and atmospheric artwork inspired by Vetrimaaran's acclaimed crime epic Vada Chennai. Premium contrast and detailing for film buffs.",
+    "category": 1,
+    "main_image": "posters/vada-chennai-cult-cinema-poster.jpg",
+    "base_price": "329.00",
+    "stock": 20,
+    "rating": "4.9",
+    "is_featured": true,
+    "is_trending": true,
+    "is_bestseller": false,
+    "tags": "movies, vada chennai, dhanush, vetrimaaran, cult cinema, gangster, kollywood, cinema",
+    "source_filename": "vadachennai.jpg",
+    "is_active": true,
+    "created_at": "2026-09-22T15:24:35.065Z",
+    "updated_at": "2026-09-22T15:31:37.508Z"
+  }
+},
+{
+  "model": "store.poster",
+  "pk": 43,
+  "fields": {
+    "title": "Vaporwave Synth City Horizon Poster",
+    "slug": "vaporwave-synth-city-horizon-poster",
+    "description": "Nostalgic 80s synthwave dreamscape with glowing neon skyline, grid horizon, and giant magenta setting sun. Ideal for retro-futuristic decor.",
+    "category": 10,
+    "main_image": "posters/vaporwave-synth-city-horizon-poster.png",
+    "base_price": "349.00",
+    "stock": 20,
+    "rating": "4.9",
+    "is_featured": true,
+    "is_trending": true,
+    "is_bestseller": true,
+    "tags": "aesthetic, vaporwave, synthwave, retro 80s, neon sunset, cyber city, lo-fi, cyberpunk",
+    "source_filename": "vaporwave-sunset-synth-city-horizon-v0-pce596hztst71.png",
+    "is_active": true,
+    "created_at": "2026-09-22T15:24:35.084Z",
+    "updated_at": "2026-09-22T15:31:37.513Z"
+  }
+},
+{
+  "model": "store.poster",
+  "pk": 44,
+  "fields": {
+    "title": "Itachi Uchiha Anime Art Poster",
+    "slug": "itachi-uchiha-anime-art-poster",
+    "description": "Striking dark aesthetic artwork of Itachi Uchiha with glowing Sharingan and bold typography. Printed on heavyweight 300 GSM archival matte paper.",
+    "category": 2,
+    "main_image": "posters/itachi-uchiha-anime-art-poster.jpg",
+    "base_price": "349.00",
+    "stock": 20,
+    "rating": "5.0",
+    "is_featured": true,
+    "is_trending": true,
+    "is_bestseller": true,
+    "tags": "anime, naruto, itachi uchiha, sharingan, akatsuki, tokyo, manga art, japanese anime",
+    "source_filename": "𓂃 ࣪˖ ִֶ ★ ainaarlaith.jpg",
+    "is_active": true,
+    "created_at": "2026-09-22T15:24:35.102Z",
+    "updated_at": "2026-09-22T15:31:37.518Z"
+  }
+},
+{
+  "model": "store.review",
+  "pk": 1,
+  "fields": {
+    "poster": 1,
+    "user": [
+      "rahul"
+    ],
+    "rating": 4,
+    "review_text": "Absolutely in love with this 'Interstellar Odyssey' poster! The matte paper quality and depth of colors exceeded my expectations. Arrived in sturdy packaging with zero creases.",
+    "is_verified_purchase": true,
+    "created_at": "2026-08-31T14:38:34.399Z"
+  }
+},
+{
+  "model": "store.review",
+  "pk": 2,
+  "fields": {
+    "poster": 2,
+    "user": [
+      "rahul"
+    ],
+    "rating": 4,
+    "review_text": "Absolutely in love with this 'The Dark Knight Minimalist' poster! The matte paper quality and depth of colors exceeded my expectations. Arrived in sturdy packaging with zero creases.",
+    "is_verified_purchase": true,
+    "created_at": "2026-08-31T14:38:34.440Z"
+  }
+},
+{
+  "model": "store.review",
+  "pk": 3,
+  "fields": {
+    "poster": 3,
+    "user": [
+      "rahul"
+    ],
+    "rating": 5,
+    "review_text": "Absolutely in love with this 'Neon Tokyo Cyberpunk 2099' poster! The matte paper quality and depth of colors exceeded my expectations. Arrived in sturdy packaging with zero creases.",
+    "is_verified_purchase": true,
+    "created_at": "2026-08-31T14:38:34.468Z"
+  }
+},
+{
+  "model": "store.review",
+  "pk": 4,
+  "fields": {
+    "poster": 4,
+    "user": [
+      "rahul"
+    ],
+    "rating": 4,
+    "review_text": "Absolutely in love with this 'Spirited Sky Castle' poster! The matte paper quality and depth of colors exceeded my expectations. Arrived in sturdy packaging with zero creases.",
+    "is_verified_purchase": true,
+    "created_at": "2026-08-31T14:38:34.493Z"
+  }
+},
+{
+  "model": "store.review",
+  "pk": 5,
+  "fields": {
+    "poster": 5,
+    "user": [
+      "rahul"
+    ],
+    "rating": 4,
+    "review_text": "Absolutely in love with this 'Porsche 911 Turbo Classic' poster! The matte paper quality and depth of colors exceeded my expectations. Arrived in sturdy packaging with zero creases.",
+    "is_verified_purchase": true,
+    "created_at": "2026-08-31T14:38:34.519Z"
+  }
+},
+{
+  "model": "store.review",
+  "pk": 6,
+  "fields": {
+    "poster": 6,
+    "user": [
+      "rahul"
+    ],
+    "rating": 5,
+    "review_text": "Absolutely in love with this 'Monaco Grand Prix Vintage 1976' poster! The matte paper quality and depth of colors exceeded my expectations. Arrived in sturdy packaging with zero creases.",
+    "is_verified_purchase": true,
+    "created_at": "2026-08-31T14:38:34.545Z"
+  }
+},
+{
+  "model": "store.review",
+  "pk": 7,
+  "fields": {
+    "poster": 7,
+    "user": [
+      "rahul"
+    ],
+    "rating": 4,
+    "review_text": "Absolutely in love with this 'Pixel Quest Arcade Realm' poster! The matte paper quality and depth of colors exceeded my expectations. Arrived in sturdy packaging with zero creases.",
+    "is_verified_purchase": true,
+    "created_at": "2026-08-31T14:38:34.569Z"
+  }
+},
+{
+  "model": "store.review",
+  "pk": 8,
+  "fields": {
+    "poster": 8,
+    "user": [
+      "rahul"
+    ],
+    "rating": 5,
+    "review_text": "Absolutely in love with this 'Elden Warrior In Solitude' poster! The matte paper quality and depth of colors exceeded my expectations. Arrived in sturdy packaging with zero creases.",
+    "is_verified_purchase": true,
+    "created_at": "2026-08-31T14:38:34.603Z"
+  }
+},
+{
+  "model": "store.review",
+  "pk": 9,
+  "fields": {
+    "poster": 9,
+    "user": [
+      "rahul"
+    ],
+    "rating": 4,
+    "review_text": "Absolutely in love with this 'Stay Hungry, Stay Foolish' poster! The matte paper quality and depth of colors exceeded my expectations. Arrived in sturdy packaging with zero creases.",
+    "is_verified_purchase": true,
+    "created_at": "2026-08-31T14:38:34.652Z"
+  }
+},
+{
+  "model": "store.review",
+  "pk": 10,
+  "fields": {
+    "poster": 10,
+    "user": [
+      "rahul"
+    ],
+    "rating": 4,
+    "review_text": "Absolutely in love with this 'Do Epic Shit Daily' poster! The matte paper quality and depth of colors exceeded my expectations. Arrived in sturdy packaging with zero creases.",
+    "is_verified_purchase": true,
+    "created_at": "2026-08-31T14:38:34.678Z"
+  }
+},
+{
+  "model": "store.review",
+  "pk": 11,
+  "fields": {
+    "poster": 11,
+    "user": [
+      "rahul"
+    ],
+    "rating": 5,
+    "review_text": "Absolutely in love with this 'Mamba Mentality 24' poster! The matte paper quality and depth of colors exceeded my expectations. Arrived in sturdy packaging with zero creases.",
+    "is_verified_purchase": true,
+    "created_at": "2026-08-31T14:38:34.708Z"
+  }
+},
+{
+  "model": "store.review",
+  "pk": 12,
+  "fields": {
+    "poster": 12,
+    "user": [
+      "rahul"
+    ],
+    "rating": 5,
+    "review_text": "Absolutely in love with this 'The Greatest GOAT 10' poster! The matte paper quality and depth of colors exceeded my expectations. Arrived in sturdy packaging with zero creases.",
+    "is_verified_purchase": true,
+    "created_at": "2026-08-31T14:38:34.734Z"
+  }
+},
+{
+  "model": "store.review",
+  "pk": 13,
+  "fields": {
+    "poster": 13,
+    "user": [
+      "rahul"
+    ],
+    "rating": 5,
+    "review_text": "Absolutely in love with this 'Misty Alpine Sunrise' poster! The matte paper quality and depth of colors exceeded my expectations. Arrived in sturdy packaging with zero creases.",
+    "is_verified_purchase": true,
+    "created_at": "2026-08-31T14:38:34.762Z"
+  }
+},
+{
+  "model": "store.review",
+  "pk": 14,
+  "fields": {
+    "poster": 14,
+    "user": [
+      "rahul"
+    ],
+    "rating": 5,
+    "review_text": "Absolutely in love with this 'Golden Hour Pacific Wave' poster! The matte paper quality and depth of colors exceeded my expectations. Arrived in sturdy packaging with zero creases.",
+    "is_verified_purchase": true,
+    "created_at": "2026-08-31T14:38:34.791Z"
+  }
+},
+{
+  "model": "store.review",
+  "pk": 15,
+  "fields": {
+    "poster": 15,
+    "user": [
+      "rahul"
+    ],
+    "rating": 5,
+    "review_text": "Absolutely in love with this 'Abbey Road Crosswalk' poster! The matte paper quality and depth of colors exceeded my expectations. Arrived in sturdy packaging with zero creases.",
+    "is_verified_purchase": true,
+    "created_at": "2026-08-31T14:38:34.821Z"
+  }
+},
+{
+  "model": "store.review",
+  "pk": 16,
+  "fields": {
+    "poster": 16,
+    "user": [
+      "rahul"
+    ],
+    "rating": 5,
+    "review_text": "Absolutely in love with this 'Midnight Jazz Club NYC' poster! The matte paper quality and depth of colors exceeded my expectations. Arrived in sturdy packaging with zero creases.",
+    "is_verified_purchase": true,
+    "created_at": "2026-08-31T14:38:34.850Z"
+  }
+},
+{
+  "model": "store.review",
+  "pk": 17,
+  "fields": {
+    "poster": 17,
+    "user": [
+      "rahul"
+    ],
+    "rating": 4,
+    "review_text": "Absolutely in love with this 'Bauhaus Geometric Balance' poster! The matte paper quality and depth of colors exceeded my expectations. Arrived in sturdy packaging with zero creases.",
+    "is_verified_purchase": true,
+    "created_at": "2026-08-31T14:38:34.876Z"
+  }
+},
+{
+  "model": "store.review",
+  "pk": 18,
+  "fields": {
+    "poster": 18,
+    "user": [
+      "rahul"
+    ],
+    "rating": 5,
+    "review_text": "Absolutely in love with this 'Zen Circle Enso Flow' poster! The matte paper quality and depth of colors exceeded my expectations. Arrived in sturdy packaging with zero creases.",
+    "is_verified_purchase": true,
+    "created_at": "2026-08-31T14:38:34.909Z"
+  }
+},
+{
+  "model": "store.review",
+  "pk": 19,
+  "fields": {
+    "poster": 19,
+    "user": [
+      "rahul"
+    ],
+    "rating": 5,
+    "review_text": "Absolutely in love with this 'Pastel Dunes Oasis' poster! The matte paper quality and depth of colors exceeded my expectations. Arrived in sturdy packaging with zero creases.",
+    "is_verified_purchase": true,
+    "created_at": "2026-08-31T14:38:34.939Z"
+  }
+},
+{
+  "model": "store.review",
+  "pk": 20,
+  "fields": {
+    "poster": 20,
+    "user": [
+      "rahul"
+    ],
+    "rating": 4,
+    "review_text": "Absolutely in love with this 'Vaporwave Sunset Horizon' poster! The matte paper quality and depth of colors exceeded my expectations. Arrived in sturdy packaging with zero creases.",
+    "is_verified_purchase": true,
+    "created_at": "2026-08-31T14:38:34.965Z"
+  }
+},
+{
+  "model": "cart.coupon",
+  "pk": 1,
+  "fields": {
+    "code": "POSTER10",
+    "discount_type": "PERCENT",
+    "discount_value": "10.00",
+    "min_order_amount": "0.00",
+    "max_discount_amount": "300.00",
+    "active": true,
+    "expiry_date": null,
+    "usage_limit": 1000,
+    "used_count": 0,
+    "created_at": "2026-08-31T14:38:34.972Z"
+  }
+},
+{
+  "model": "cart.coupon",
+  "pk": 2,
+  "fields": {
+    "code": "SAVE100",
+    "discount_type": "FIXED",
+    "discount_value": "100.00",
+    "min_order_amount": "499.00",
+    "max_discount_amount": null,
+    "active": true,
+    "expiry_date": null,
+    "usage_limit": 1000,
+    "used_count": 0,
+    "created_at": "2026-08-31T14:38:34.977Z"
+  }
+},
+{
+  "model": "cart.coupon",
+  "pk": 3,
+  "fields": {
+    "code": "WELCOME50",
+    "discount_type": "FIXED",
+    "discount_value": "50.00",
+    "min_order_amount": "299.00",
+    "max_discount_amount": null,
+    "active": true,
+    "expiry_date": null,
+    "usage_limit": 1000,
+    "used_count": 0,
+    "created_at": "2026-08-31T14:38:34.981Z"
+  }
+},
+{
+  "model": "cart.coupon",
+  "pk": 4,
+  "fields": {
+    "code": "FESTIVE20",
+    "discount_type": "PERCENT",
+    "discount_value": "20.00",
+    "min_order_amount": "799.00",
+    "max_discount_amount": "500.00",
+    "active": true,
+    "expiry_date": null,
+    "usage_limit": 1000,
+    "used_count": 0,
+    "created_at": "2026-08-31T14:38:34.986Z"
+  }
+},
+{
+  "model": "cart.cart",
+  "pk": 1,
+  "fields": {
+    "user": null,
+    "session_key": "j9u2r6hx7zlhudjeo3xuby9r07bpd33f",
+    "coupon": null,
+    "created_at": "2026-08-31T14:48:58.801Z",
+    "updated_at": "2026-08-31T14:48:58.801Z"
+  }
+},
+{
+  "model": "cart.cart",
+  "pk": 2,
+  "fields": {
+    "user": [
+      "rahul"
+    ],
+    "session_key": null,
+    "coupon": null,
+    "created_at": "2026-08-31T14:48:59.915Z",
+    "updated_at": "2026-09-22T15:46:11.912Z"
+  }
+},
+{
+  "model": "cart.cart",
+  "pk": 3,
+  "fields": {
+    "user": [
+      "admin"
+    ],
+    "session_key": null,
+    "coupon": null,
+    "created_at": "2026-08-31T14:49:01.942Z",
+    "updated_at": "2026-09-24T04:32:41.527Z"
+  }
+},
+{
+  "model": "cart.cart",
+  "pk": 4,
+  "fields": {
+    "user": null,
+    "session_key": "zs0ls988a6mpj5fiwxuc6a8fe663ceog",
+    "coupon": null,
+    "created_at": "2026-08-31T14:53:24.332Z",
+    "updated_at": "2026-08-31T14:53:24.332Z"
+  }
+},
+{
+  "model": "cart.cart",
+  "pk": 5,
+  "fields": {
+    "user": null,
+    "session_key": "jh5d11tr0vztlctfdr3indkwp3gj5u2e",
+    "coupon": null,
+    "created_at": "2026-08-31T14:54:51.259Z",
+    "updated_at": "2026-08-31T14:54:51.259Z"
+  }
+},
+{
+  "model": "cart.cart",
+  "pk": 6,
+  "fields": {
+    "user": null,
+    "session_key": "260vxtla33njr6gt03ya9yburpuuoqqs",
+    "coupon": null,
+    "created_at": "2026-09-22T14:57:50.092Z",
+    "updated_at": "2026-09-22T14:57:50.092Z"
+  }
+},
+{
+  "model": "cart.cart",
+  "pk": 7,
+  "fields": {
+    "user": null,
+    "session_key": "lxtcot9p6840vlxcrnv6upwruxbk440e",
+    "coupon": null,
+    "created_at": "2026-09-22T15:22:54.922Z",
+    "updated_at": "2026-09-22T15:22:54.922Z"
+  }
+},
+{
+  "model": "cart.cart",
+  "pk": 8,
+  "fields": {
+    "user": null,
+    "session_key": "3ty35wxby7hputq6ijey9tbw9j33z5wl",
+    "coupon": null,
+    "created_at": "2026-09-22T15:28:16.105Z",
+    "updated_at": "2026-09-22T15:28:16.105Z"
+  }
+},
+{
+  "model": "cart.cart",
+  "pk": 9,
+  "fields": {
+    "user": null,
+    "session_key": "29tlg5yok35mqpuxi0vowtphfv3ong3y",
+    "coupon": null,
+    "created_at": "2026-09-22T15:29:19.276Z",
+    "updated_at": "2026-09-22T15:29:19.276Z"
+  }
+},
+{
+  "model": "cart.cart",
+  "pk": 10,
+  "fields": {
+    "user": null,
+    "session_key": "62x5wy6tayum2wzlb880abso2l1ujj31",
+    "coupon": null,
+    "created_at": "2026-09-22T15:31:16.473Z",
+    "updated_at": "2026-09-22T15:31:16.473Z"
+  }
+},
+{
+  "model": "cart.cart",
+  "pk": 11,
+  "fields": {
+    "user": null,
+    "session_key": "b0vb3fzkehw6j1fweyn8fwmj2cfq0ex5",
+    "coupon": null,
+    "created_at": "2026-09-22T15:31:35.311Z",
+    "updated_at": "2026-09-22T15:31:35.311Z"
+  }
+},
+{
+  "model": "cart.cart",
+  "pk": 12,
+  "fields": {
+    "user": null,
+    "session_key": "9s4ij0rpqlv66t0yu8ok4jkfw9opx0d0",
+    "coupon": null,
+    "created_at": "2026-09-22T15:31:49.446Z",
+    "updated_at": "2026-09-22T15:31:49.446Z"
+  }
+},
+{
+  "model": "cart.cart",
+  "pk": 13,
+  "fields": {
+    "user": null,
+    "session_key": "0ti8323k1wcm7dyxp2expxx2vvsr85uc",
+    "coupon": null,
+    "created_at": "2026-09-22T15:45:18.309Z",
+    "updated_at": "2026-09-22T15:45:18.309Z"
+  }
+},
+{
+  "model": "cart.cart",
+  "pk": 14,
+  "fields": {
+    "user": null,
+    "session_key": "ahciifmdqel4bh33u711pyoz6pjkzkdq",
+    "coupon": null,
+    "created_at": "2026-09-22T15:45:34.335Z",
+    "updated_at": "2026-09-22T15:45:34.335Z"
+  }
+},
+{
+  "model": "cart.cart",
+  "pk": 15,
+  "fields": {
+    "user": null,
+    "session_key": "ctcpamv69gxll3m1te4850n3zmrc0v7v",
+    "coupon": null,
+    "created_at": "2026-09-22T15:45:52.952Z",
+    "updated_at": "2026-09-22T15:45:52.952Z"
+  }
+},
+{
+  "model": "cart.cart",
+  "pk": 16,
+  "fields": {
+    "user": null,
+    "session_key": "m93gfywydonac5p2inmgfjw16ib2i14c",
+    "coupon": null,
+    "created_at": "2026-09-22T15:46:10.362Z",
+    "updated_at": "2026-09-22T15:46:10.362Z"
+  }
+},
+{
+  "model": "cart.cart",
+  "pk": 17,
+  "fields": {
+    "user": null,
+    "session_key": "z2v38mk9q3dff7kvt90ogzkn29i3xkt6",
+    "coupon": null,
+    "created_at": "2026-09-26T14:03:14.644Z",
+    "updated_at": "2026-09-26T14:03:14.644Z"
+  }
+},
+{
+  "model": "cart.cart",
+  "pk": 18,
+  "fields": {
+    "user": null,
+    "session_key": "kuyupye5gdvkomvj8blvl8hzdbrzgjj1",
+    "coupon": null,
+    "created_at": "2026-09-26T14:05:33.268Z",
+    "updated_at": "2026-09-26T14:08:09.155Z"
+  }
+},
+{
+  "model": "cart.cart",
+  "pk": 19,
+  "fields": {
+    "user": null,
+    "session_key": "fkl8xwsvintdmqzp1nogzx89djaac7m5",
+    "coupon": null,
+    "created_at": "2026-10-01T05:12:16.742Z",
+    "updated_at": "2026-10-01T05:12:16.742Z"
+  }
+},
+{
+  "model": "cart.cartitem",
+  "pk": 4,
+  "fields": {
+    "cart": 3,
+    "poster": 7,
+    "custom_poster": null,
+    "size": 1,
+    "frame": 1,
+    "quantity": 1,
+    "unit_price": "289.00",
+    "total_price": "289.00",
+    "created_at": "2026-08-31T15:00:19.557Z",
+    "updated_at": "2026-08-31T15:00:19.557Z"
+  }
+},
+{
+  "model": "cart.cartitem",
+  "pk": 6,
+  "fields": {
+    "cart": 3,
+    "poster": 17,
+    "custom_poster": null,
+    "size": 1,
+    "frame": 1,
+    "quantity": 1,
+    "unit_price": "349.00",
+    "total_price": "349.00",
+    "created_at": "2026-09-05T04:32:48.223Z",
+    "updated_at": "2026-09-05T04:32:48.223Z"
+  }
+},
+{
+  "model": "cart.cartitem",
+  "pk": 11,
+  "fields": {
+    "cart": 3,
+    "poster": 25,
+    "custom_poster": null,
+    "size": 1,
+    "frame": 1,
+    "quantity": 1,
+    "unit_price": "349.00",
+    "total_price": "349.00",
+    "created_at": "2026-09-24T04:32:41.513Z",
+    "updated_at": "2026-09-24T04:32:41.513Z"
+  }
+},
+{
+  "model": "cart.cartitem",
+  "pk": 12,
+  "fields": {
+    "cart": 18,
+    "poster": 44,
+    "custom_poster": null,
+    "size": 1,
+    "frame": 1,
+    "quantity": 1,
+    "unit_price": "349.00",
+    "total_price": "349.00",
+    "created_at": "2026-09-26T14:08:09.147Z",
+    "updated_at": "2026-09-26T14:08:09.147Z"
+  }
+},
+{
+  "model": "cart.wishlist",
+  "pk": 2,
+  "fields": {
+    "user": [
+      "rahul"
+    ],
+    "poster": 20,
+    "created_at": "2026-09-22T15:22:55.896Z"
+  }
+},
+{
+  "model": "cart.wishlist",
+  "pk": 4,
+  "fields": {
+    "user": [
+      "rahul"
+    ],
+    "poster": 44,
+    "created_at": "2026-09-22T15:46:11.744Z"
+  }
+},
+{
+  "model": "cart.wishlist",
+  "pk": 6,
+  "fields": {
+    "user": [
+      "admin"
+    ],
+    "poster": 24,
+    "created_at": "2026-09-26T14:11:28.201Z"
+  }
+},
+{
+  "model": "orders.order",
+  "pk": 1,
+  "fields": {
+    "order_number": "PK-20260831-A9A560",
+    "user": [
+      "rahul"
+    ],
+    "delivery_address": 1,
+    "shipping_full_name": "Rahul Sharma",
+    "shipping_phone": "9876500000",
+    "shipping_address_line1": "Flat 402, Sunshine Heights, MG Road",
+    "shipping_address_line2": "Indiranagar",
+    "shipping_city": "Bengaluru",
+    "shipping_state": "Karnataka",
+    "shipping_pin_code": "560038",
+    "shipping_landmark": "Near Metro Station",
+    "subtotal": "1198.00",
+    "delivery_charge": "0.00",
+    "discount_amount": "119.80",
+    "total_amount": "1078.20",
+    "coupon_code": "POSTER10",
+    "payment_method": "DEMO_ONLINE",
+    "payment_status": "PAID",
+    "payment_transaction_id": "TXN-09B8B47260",
+    "order_status": "SHIPPED",
+    "cancellation_reason": "",
+    "admin_notes": "",
+    "created_at": "2026-08-31T14:48:59.982Z",
+    "updated_at": "2026-08-31T14:49:01.988Z"
+  }
+},
+{
+  "model": "orders.order",
+  "pk": 2,
+  "fields": {
+    "order_number": "PK-20260831-FEA3B3",
+    "user": [
+      "rahul"
+    ],
+    "delivery_address": 1,
+    "shipping_full_name": "Rahul Sharma",
+    "shipping_phone": "9876500000",
+    "shipping_address_line1": "Flat 402, Sunshine Heights, MG Road",
+    "shipping_address_line2": "Indiranagar",
+    "shipping_city": "Bengaluru",
+    "shipping_state": "Karnataka",
+    "shipping_pin_code": "560038",
+    "shipping_landmark": "Near Metro Station",
+    "subtotal": "1198.00",
+    "delivery_charge": "0.00",
+    "discount_amount": "119.80",
+    "total_amount": "1078.20",
+    "coupon_code": "POSTER10",
+    "payment_method": "DEMO_ONLINE",
+    "payment_status": "PAID",
+    "payment_transaction_id": "TXN-D329303415",
+    "order_status": "SHIPPED",
+    "cancellation_reason": "",
+    "admin_notes": "",
+    "created_at": "2026-08-31T14:53:25.308Z",
+    "updated_at": "2026-08-31T14:53:26.206Z"
+  }
+},
+{
+  "model": "orders.order",
+  "pk": 3,
+  "fields": {
+    "order_number": "PK-20260831-B99A14",
+    "user": [
+      "admin"
+    ],
+    "delivery_address": 2,
+    "shipping_full_name": "zemi",
+    "shipping_phone": "889990009",
+    "shipping_address_line1": "122",
+    "shipping_address_line2": "jffkewfernflerjnf",
+    "shipping_city": "madurai",
+    "shipping_state": "taminadu",
+    "shipping_pin_code": "76766",
+    "shipping_landmark": "no",
+    "subtotal": "549.00",
+    "delivery_charge": "0.00",
+    "discount_amount": "0.00",
+    "total_amount": "549.00",
+    "coupon_code": "",
+    "payment_method": "COD",
+    "payment_status": "PENDING",
+    "payment_transaction_id": "",
+    "order_status": "CANCELLED",
+    "cancellation_reason": "Changed mind / Ordered by mistake",
+    "admin_notes": "",
+    "created_at": "2026-08-31T14:57:59.617Z",
+    "updated_at": "2026-08-31T14:58:49.057Z"
+  }
+},
+{
+  "model": "orders.order",
+  "pk": 4,
+  "fields": {
+    "order_number": "PK-20260922-00B072",
+    "user": [
+      "rahul"
+    ],
+    "delivery_address": 1,
+    "shipping_full_name": "Rahul Sharma",
+    "shipping_phone": "9876500000",
+    "shipping_address_line1": "Flat 402, Sunshine Heights, MG Road",
+    "shipping_address_line2": "Indiranagar",
+    "shipping_city": "Bengaluru",
+    "shipping_state": "Karnataka",
+    "shipping_pin_code": "560038",
+    "shipping_landmark": "Near Metro Station",
+    "subtotal": "1198.00",
+    "delivery_charge": "0.00",
+    "discount_amount": "119.80",
+    "total_amount": "1078.20",
+    "coupon_code": "POSTER10",
+    "payment_method": "DEMO_ONLINE",
+    "payment_status": "PAID",
+    "payment_transaction_id": "TXN-FA4D89B2E7",
+    "order_status": "CANCELLED",
+    "cancellation_reason": "",
+    "admin_notes": "",
+    "created_at": "2026-09-22T15:22:55.968Z",
+    "updated_at": "2026-09-26T14:08:11.276Z"
+  }
+},
+{
+  "model": "orders.order",
+  "pk": 5,
+  "fields": {
+    "order_number": "PK-20260922-A065CC",
+    "user": [
+      "rahul"
+    ],
+    "delivery_address": 1,
+    "shipping_full_name": "Rahul Sharma",
+    "shipping_phone": "9876500000",
+    "shipping_address_line1": "Flat 402, Sunshine Heights, MG Road",
+    "shipping_address_line2": "Indiranagar",
+    "shipping_city": "Bengaluru",
+    "shipping_state": "Karnataka",
+    "shipping_pin_code": "560038",
+    "shipping_landmark": "Near Metro Station",
+    "subtotal": "1298.00",
+    "delivery_charge": "0.00",
+    "discount_amount": "129.80",
+    "total_amount": "1168.20",
+    "coupon_code": "POSTER10",
+    "payment_method": "DEMO_ONLINE",
+    "payment_status": "PAID",
+    "payment_transaction_id": "TXN-F113D5E750",
+    "order_status": "SHIPPED",
+    "cancellation_reason": "",
+    "admin_notes": "",
+    "created_at": "2026-09-22T15:28:17.492Z",
+    "updated_at": "2026-09-22T15:28:18.751Z"
+  }
+},
+{
+  "model": "orders.order",
+  "pk": 6,
+  "fields": {
+    "order_number": "PK-20260922-FE81CF",
+    "user": [
+      "rahul"
+    ],
+    "delivery_address": 1,
+    "shipping_full_name": "Rahul Sharma",
+    "shipping_phone": "9876500000",
+    "shipping_address_line1": "Flat 402, Sunshine Heights, MG Road",
+    "shipping_address_line2": "Indiranagar",
+    "shipping_city": "Bengaluru",
+    "shipping_state": "Karnataka",
+    "shipping_pin_code": "560038",
+    "shipping_landmark": "Near Metro Station",
+    "subtotal": "1298.00",
+    "delivery_charge": "0.00",
+    "discount_amount": "129.80",
+    "total_amount": "1168.20",
+    "coupon_code": "POSTER10",
+    "payment_method": "DEMO_ONLINE",
+    "payment_status": "PAID",
+    "payment_transaction_id": "TXN-68642F64FE",
+    "order_status": "SHIPPED",
+    "cancellation_reason": "",
+    "admin_notes": "",
+    "created_at": "2026-09-22T15:31:50.555Z",
+    "updated_at": "2026-09-22T15:31:51.555Z"
+  }
+},
+{
+  "model": "orders.order",
+  "pk": 7,
+  "fields": {
+    "order_number": "PK-20260922-FF214E",
+    "user": [
+      "rahul"
+    ],
+    "delivery_address": 1,
+    "shipping_full_name": "Rahul Sharma",
+    "shipping_phone": "9876500000",
+    "shipping_address_line1": "Flat 402, Sunshine Heights, MG Road",
+    "shipping_address_line2": "Indiranagar",
+    "shipping_city": "Bengaluru",
+    "shipping_state": "Karnataka",
+    "shipping_pin_code": "560038",
+    "shipping_landmark": "Near Metro Station",
+    "subtotal": "1298.00",
+    "delivery_charge": "0.00",
+    "discount_amount": "129.80",
+    "total_amount": "1168.20",
+    "coupon_code": "POSTER10",
+    "payment_method": "DEMO_ONLINE",
+    "payment_status": "PAID",
+    "payment_transaction_id": "TXN-5F15D6DE9D",
+    "order_status": "SHIPPED",
+    "cancellation_reason": "",
+    "admin_notes": "",
+    "created_at": "2026-09-22T15:46:11.832Z",
+    "updated_at": "2026-09-22T15:46:13.139Z"
+  }
+},
+{
+  "model": "orders.orderitem",
+  "pk": 1,
+  "fields": {
+    "order": 1,
+    "poster": 20,
+    "custom_poster": null,
+    "title": "Vaporwave Sunset Horizon",
+    "image_url": "/media/posters/poster_vaporwave-sunset-horizon.jpg",
+    "size_name": "A3 (11.7 × 16.5 in)",
+    "frame_name": "Matte Black Wood Frame",
+    "quantity": 2,
+    "unit_price": "599.00",
+    "total_price": "1198.00"
+  }
+},
+{
+  "model": "orders.orderitem",
+  "pk": 2,
+  "fields": {
+    "order": 2,
+    "poster": 20,
+    "custom_poster": null,
+    "title": "Vaporwave Sunset Horizon",
+    "image_url": "/media/posters/poster_vaporwave-sunset-horizon.jpg",
+    "size_name": "A3 (11.7 × 16.5 in)",
+    "frame_name": "Matte Black Wood Frame",
+    "quantity": 2,
+    "unit_price": "599.00",
+    "total_price": "1198.00"
+  }
+},
+{
+  "model": "orders.orderitem",
+  "pk": 3,
+  "fields": {
+    "order": 3,
+    "poster": null,
+    "custom_poster": 1,
+    "title": "Custom Poster (us)",
+    "image_url": "/media/custom_posters/ChatGPT_Image_Aug_17_2026_06_23_14_PM.png",
+    "size_name": "A4 (8.3 × 11.7 in)",
+    "frame_name": "Matte Black Wood Frame",
+    "quantity": 1,
+    "unit_price": "549.00",
+    "total_price": "549.00"
+  }
+},
+{
+  "model": "orders.orderitem",
+  "pk": 4,
+  "fields": {
+    "order": 4,
+    "poster": 20,
+    "custom_poster": null,
+    "title": "Vaporwave Sunset Horizon",
+    "image_url": "/media/posters/poster_vaporwave-sunset-horizon.jpg",
+    "size_name": "A3 (11.7 × 16.5 in)",
+    "frame_name": "Matte Black Wood Frame",
+    "quantity": 2,
+    "unit_price": "599.00",
+    "total_price": "1198.00"
+  }
+},
+{
+  "model": "orders.orderitem",
+  "pk": 5,
+  "fields": {
+    "order": 5,
+    "poster": 44,
+    "custom_poster": null,
+    "title": "Itachi Uchiha Anime Art Poster",
+    "image_url": "/media/posters/itachi-uchiha-anime-art-poster.jpg",
+    "size_name": "A3 (11.7 × 16.5 in)",
+    "frame_name": "Matte Black Wood Frame",
+    "quantity": 2,
+    "unit_price": "649.00",
+    "total_price": "1298.00"
+  }
+},
+{
+  "model": "orders.orderitem",
+  "pk": 6,
+  "fields": {
+    "order": 6,
+    "poster": 44,
+    "custom_poster": null,
+    "title": "Itachi Uchiha Anime Art Poster",
+    "image_url": "/media/posters/itachi-uchiha-anime-art-poster.jpg",
+    "size_name": "A3 (11.7 × 16.5 in)",
+    "frame_name": "Matte Black Wood Frame",
+    "quantity": 2,
+    "unit_price": "649.00",
+    "total_price": "1298.00"
+  }
+},
+{
+  "model": "orders.orderitem",
+  "pk": 7,
+  "fields": {
+    "order": 7,
+    "poster": 44,
+    "custom_poster": null,
+    "title": "Itachi Uchiha Anime Art Poster",
+    "image_url": "/media/posters/itachi-uchiha-anime-art-poster.jpg",
+    "size_name": "A3 (11.7 × 16.5 in)",
+    "frame_name": "Matte Black Wood Frame",
+    "quantity": 2,
+    "unit_price": "649.00",
+    "total_price": "1298.00"
+  }
+},
+{
+  "model": "customposters.customposter",
+  "pk": 1,
+  "fields": {
+    "user": [
+      "admin"
+    ],
+    "session_key": "",
+    "uploaded_image": "custom_posters/ChatGPT_Image_Aug_17_2026_06_23_14_PM.png",
+    "size": 1,
+    "frame": 2,
+    "custom_text": "us",
+    "special_instructions": "",
+    "quantity": 1,
+    "base_price": "349.00",
+    "unit_price": "549.00",
+    "total_price": "549.00",
+    "created_at": "2026-08-31T14:56:56.107Z"
+  }
+},
+{
+  "model": "customposters.customposter",
+  "pk": 2,
+  "fields": {
+    "user": [
+      "admin"
+    ],
+    "session_key": "",
+    "uploaded_image": "custom_posters/Paspic.jpg",
+    "size": 1,
+    "frame": 2,
+    "custom_text": "",
+    "special_instructions": "",
+    "quantity": 1,
+    "base_price": "349.00",
+    "unit_price": "549.00",
+    "total_price": "549.00",
+    "created_at": "2026-09-01T06:15:51.743Z"
+  }
+}
+]
